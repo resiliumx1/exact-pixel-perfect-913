@@ -23,23 +23,7 @@ import WaveDivider from "@/components/antiguan/WaveDivider";
 import SunRating from "@/components/antiguan/SunRating";
 import AntiguaFlagBadge from "@/components/antiguan/AntiguaFlagBadge";
 import FlagStripe from "@/components/antiguan/FlagStripe";
-
-/* ── Fade-in wrapper ── */
-const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) => {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-60px" });
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 30 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, ease: "easeOut", delay }}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
-};
+import FadeIn from "@/components/FadeIn";
 
 /* ── Counter ── */
 const Counter = ({ end, suffix, label, icon }: { end: number; suffix: string; label: string; icon?: string }) => {

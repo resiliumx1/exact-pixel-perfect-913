@@ -1,6 +1,4 @@
-import { useRef } from "react";
 import { Link } from "react-router-dom";
-import { motion, useInView } from "framer-motion";
 import { Shield, Heart, HandHelping } from "lucide-react";
 
 import darylImg from "@/assets/daryl-portrait.jpg";
@@ -10,16 +8,7 @@ import AntiguaFlag from "@/components/antiguan/AntiguaFlag";
 import AntiguaFlagBadge from "@/components/antiguan/AntiguaFlagBadge";
 import SectionDividerSun from "@/components/antiguan/SectionDividerSun";
 import FlagStripe from "@/components/antiguan/FlagStripe";
-
-const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) => {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-40px" });
-  return (
-    <motion.div ref={ref} initial={{ opacity: 0, y: 24 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, ease: "easeOut", delay }} className={className}>
-      {children}
-    </motion.div>
-  );
-};
+import FadeIn from "@/components/FadeIn";
 
 const values = [
   { icon: Shield, title: "Safety", desc: "Fully licensed, insured vehicles and a spotless safety record. Your wellbeing is our top priority." },

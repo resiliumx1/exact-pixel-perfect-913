@@ -1,20 +1,11 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { motion, useInView } from "framer-motion";
 import { Phone, Mail, MapPin, Clock, Smartphone } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
 import FlagStripe from "@/components/antiguan/FlagStripe";
-
-const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) => {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-40px" });
-  return (
-    <motion.div ref={ref} initial={{ opacity: 0, y: 24 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, ease: "easeOut", delay }} className={className}>
-      {children}
-    </motion.div>
-  );
-};
+import FadeIn from "@/components/FadeIn";
+import heroImg from "@/assets/hero-antigua.jpg";
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
@@ -44,8 +35,10 @@ const Contact = () => {
 
   return (
     <main>
-      <section className="relative h-[50vh] min-h-[360px] flex items-center justify-center gradient-hero">
+      <section className="relative h-[50vh] min-h-[360px] flex items-center justify-center overflow-hidden">
         <FlagStripe />
+        <img src={heroImg} alt="Antigua coastline" className="absolute inset-0 w-full h-full object-cover" width={1920} height={1080} />
+        <div className="absolute inset-0 bg-gradient-to-b from-shadow/70 via-shadow/40 to-shadow/60" />
         <div className="relative z-10 text-center px-4">
           <nav className="text-antigua-white/50 text-sm font-body mb-3">
             <Link to="/" className="hover:text-antigua-white transition-colors">Home</Link>

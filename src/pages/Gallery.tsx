@@ -1,9 +1,9 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { motion, useInView } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, Expand } from "lucide-react";
 
 import FlagStripe from "@/components/antiguan/FlagStripe";
+import FadeIn from "@/components/FadeIn";
 import gallery1 from "@/assets/gallery-1.jpg";
 import gallery2 from "@/assets/gallery-2.jpg";
 import gallery3 from "@/assets/gallery-3.jpg";
@@ -16,16 +16,6 @@ import tourHistorical from "@/assets/tour-historical.jpg";
 import tourSunset from "@/assets/tour-sunset.jpg";
 import fleetImg from "@/assets/fleet.jpg";
 import heroImg from "@/assets/hero-antigua.jpg";
-
-const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) => {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-40px" });
-  return (
-    <motion.div ref={ref} initial={{ opacity: 0, y: 24 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, ease: "easeOut", delay }} className={className}>
-      {children}
-    </motion.div>
-  );
-};
 
 interface GalleryImage {
   src: string;

@@ -1,22 +1,12 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { motion, useInView } from "framer-motion";
 import { Clock, Users, Check, Info, MapPin, Shield, Smartphone, ChevronLeft, ChevronRight, X } from "lucide-react";
 
 import { toursData } from "@/data/tours";
 import AntiguaSunIcon from "@/components/antiguan/AntiguaSunIcon";
 import SunRating from "@/components/antiguan/SunRating";
 import FlagStripe from "@/components/antiguan/FlagStripe";
-
-const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) => {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-40px" });
-  return (
-    <motion.div ref={ref} initial={{ opacity: 0, y: 24 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, ease: "easeOut", delay }} className={className}>
-      {children}
-    </motion.div>
-  );
-};
+import FadeIn from "@/components/FadeIn";
 
 const TourDetail = () => {
   const { slug } = useParams();
