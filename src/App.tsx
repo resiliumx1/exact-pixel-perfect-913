@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import Index from "./pages/Index";
 import Tours from "./pages/Tours";
+import TourDetail from "./pages/TourDetail";
 import TaxiServices from "./pages/TaxiServices";
 import About from "./pages/About";
 import Gallery from "./pages/Gallery";
