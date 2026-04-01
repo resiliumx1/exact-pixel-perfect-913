@@ -28,7 +28,7 @@ const AdminLogin = () => {
   };
 
   return (
-    <main className="min-h-screen flex items-center justify-center bg-sand">
+    <main id="main-content" className="min-h-screen flex items-center justify-center bg-sand">
       <div className="w-full max-w-sm mx-4">
         <div className="text-center mb-8">
           <span className="font-accent text-antigua-gold text-2xl block">DARYL'S</span>

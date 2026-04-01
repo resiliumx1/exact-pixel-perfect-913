@@ -10,7 +10,7 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-ocean relative overflow-hidden">
+    <main id="main-content" className="flex min-h-screen items-center justify-center bg-ocean relative overflow-hidden">
       {/* Horizon line */}
       <div className="absolute bottom-[35%] left-0 right-0 h-px bg-antigua-gold/30" />
       {/* Water */}

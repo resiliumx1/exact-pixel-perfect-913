@@ -47,7 +47,7 @@ const Gallery = () => {
   const filtered = active === "All" ? images : images.filter((img) => img.category === active.toLowerCase());
 
   return (
-    <main>
+    <main id="main-content">
       {/* Hero */}
       <section className="relative h-[40vh] min-h-[300px] flex items-center justify-center gradient-hero">
         <FlagStripe />
