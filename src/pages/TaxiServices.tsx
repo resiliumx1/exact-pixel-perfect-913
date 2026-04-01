@@ -6,6 +6,7 @@ import { Plane, MapPin, Clock, Smartphone, Users } from "lucide-react";
 import taxiHero from "@/assets/taxi-hero.jpg";
 import FlagVShape from "@/components/antiguan/FlagVShape";
 import AntiguaFlagBadge from "@/components/antiguan/AntiguaFlagBadge";
+import FlagStripe from "@/components/antiguan/FlagStripe";
 
 const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) => {
   const ref = useRef(null);
