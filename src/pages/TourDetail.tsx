@@ -33,7 +33,7 @@ const TourDetail = () => {
   );
 
   return (
-    <main>
+    <main id="main-content">
       {/* Hero */}
       <section className="relative h-[60vh] min-h-[400px] flex items-end overflow-hidden">
         <FlagStripe />

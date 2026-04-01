@@ -84,7 +84,7 @@ const Book = () => {
   }
 
   return (
-    <main>
+    <main id="main-content">
       <section className="relative h-[40vh] min-h-[300px] flex items-center justify-center overflow-hidden">
         <FlagStripe />
         <img src={heroImg} alt="Antigua coastline" className="absolute inset-0 w-full h-full object-cover" width={1920} height={1080} />

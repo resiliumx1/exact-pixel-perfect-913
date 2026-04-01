@@ -35,7 +35,7 @@ const NotFound = () => {
           BACK TO SHORE →
         </Link>
       </div>
-    </div>
+    </main>
   );
 };
 
