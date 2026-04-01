@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import AntiguaSunIcon from "./antiguan/AntiguaSunIcon";
+import FlagVShape from "./antiguan/FlagVShape";
 
 const navLinks = [
   { label: "Home", to: "/" },
@@ -39,13 +41,16 @@ const Navbar = () => {
       >
         <div className="container mx-auto px-4 lg:px-8 flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link to="/" className="flex flex-col leading-none">
-            <span className="font-accent text-antigua-gold text-lg lg:text-xl tracking-wide">
-              DARYL'S
-            </span>
-            <span className="font-body text-antigua-white text-[10px] lg:text-xs tracking-[3px] -mt-0.5">
-              EXTREME ISLAND TOURS
-            </span>
+          <Link to="/" className="flex items-center gap-2">
+            <AntiguaSunIcon size={16} className="text-antigua-gold" />
+            <div className="flex flex-col leading-none">
+              <span className="font-accent text-antigua-gold text-lg lg:text-xl tracking-wide">
+                DARYL'S
+              </span>
+              <span className="font-body text-antigua-white text-[10px] lg:text-xs tracking-[3px] -mt-0.5">
+                EXTREME ISLAND TOURS
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Nav */}
@@ -69,8 +74,9 @@ const Navbar = () => {
           {/* Desktop CTA */}
           <Link
             to="/book"
-            className="hidden lg:block font-accent text-sm gradient-gold-cta text-antigua-black px-6 py-2.5 rounded-lg hover:scale-[1.03] hover:brightness-110 transition-all duration-150 shadow-lg"
+            className="hidden lg:flex items-center gap-1.5 font-accent text-sm gradient-gold-cta text-antigua-black px-6 py-2.5 rounded-lg hover:scale-[1.03] hover:brightness-110 transition-all duration-150 shadow-lg"
           >
+            <AntiguaSunIcon size={12} className="text-antigua-black" />
             BOOK NOW
           </Link>
 
@@ -94,6 +100,9 @@ const Navbar = () => {
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-40 bg-shadow/95 backdrop-blur-sm flex flex-col items-center justify-center gap-6"
           >
+            {/* V-shape watermark */}
+            <FlagVShape variant="outline" opacity={0.05} className="text-antigua-gold" />
+
             {navLinks.map((link, i) => (
               <motion.div
                 key={link.to}
@@ -120,8 +129,9 @@ const Navbar = () => {
             >
               <Link
                 to="/book"
-                className="font-accent gradient-gold-cta text-antigua-black px-8 py-3 rounded-lg text-lg mt-4 inline-block"
+                className="font-accent gradient-gold-cta text-antigua-black px-8 py-3 rounded-lg text-lg mt-4 inline-flex items-center gap-2"
               >
+                <AntiguaSunIcon size={14} className="text-antigua-black" />
                 BOOK NOW
               </Link>
             </motion.div>

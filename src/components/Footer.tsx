@@ -1,20 +1,21 @@
 import { Link } from "react-router-dom";
 import { Instagram, Facebook, Phone, Mail, MapPin } from "lucide-react";
+import WaveDivider from "./antiguan/WaveDivider";
+import AntiguaFlagBadge from "./antiguan/AntiguaFlagBadge";
+import FlagVShape from "./antiguan/FlagVShape";
 
 const Footer = () => {
   return (
     <footer className="relative bg-antigua-black text-antigua-white/80">
       {/* Wave divider */}
       <div className="absolute top-0 left-0 right-0 -translate-y-[99%]">
-        <svg viewBox="0 0 1440 80" fill="none" className="w-full">
-          <path
-            d="M0 40C240 80 480 0 720 40C960 80 1200 0 1440 40V80H0V40Z"
-            fill="hsl(0 0% 4%)"
-          />
-        </svg>
+        <WaveDivider fill="hsl(0 0% 4%)" />
       </div>
 
-      <div className="container mx-auto px-4 lg:px-8 py-16">
+      {/* V-shape watermark */}
+      <FlagVShape variant="outline" opacity={0.03} className="text-antigua-gold" />
+
+      <div className="container mx-auto px-4 lg:px-8 py-16 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Col 1 */}
           <div>
@@ -100,13 +101,15 @@ const Footer = () => {
                 <span>St. John's, Antigua & Barbuda</span>
               </li>
             </ul>
-            <p className="mt-4 text-sm">Proudly Antiguan 🇦🇬</p>
+            <div className="mt-4">
+              <AntiguaFlagBadge variant="full" />
+            </div>
           </div>
         </div>
 
         {/* Bottom bar */}
         <div className="border-t border-antigua-white/10 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center gap-2 text-xs text-antigua-white/40">
-          <span>© {new Date().getFullYear()} Daryl's Extreme Island Tours. All rights reserved.</span>
+          <span>© {new Date().getFullYear()} Daryl's Extreme Island Tours. All rights reserved. 🇦🇬</span>
           <span>Website by NHD</span>
         </div>
       </div>
