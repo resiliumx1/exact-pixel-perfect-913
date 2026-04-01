@@ -161,8 +161,13 @@ const Index = () => {
 
         <div className="relative z-10 text-center px-4 max-w-4xl">
           <FadeIn>
-            <span className="inline-block font-body font-semibold text-antigua-gold text-xs tracking-[3px] mb-6">
-              🌴 ANTIGUA'S PREMIER TOUR EXPERIENCE
+            <span className="inline-flex items-center gap-2 font-body font-semibold text-antigua-gold text-xs tracking-[3px] mb-6">
+              <svg viewBox="0 0 20 12" width="20" height="12" aria-hidden="true">
+                <rect width="20" height="4" y="0" fill="#CE1126" />
+                <rect width="20" height="4" y="4" fill="#0A0A0A" />
+                <rect width="20" height="4" y="8" fill="#0072C6" />
+              </svg>
+              ANTIGUA'S PREMIER TOUR EXPERIENCE
             </span>
           </FadeIn>
           <FadeIn delay={0.15}>
