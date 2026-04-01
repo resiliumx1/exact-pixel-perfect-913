@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Outlet, Link, useNavigate, useLocation } from "react-router-dom";
-import { supabase } from "@/integrations/supabase/client";
 import { LayoutDashboard, Calendar, MessageSquare, MapPin, Image, Star, Settings, ArrowLeft, LogOut, Menu, X } from "lucide-react";
 
 const navItems = [
