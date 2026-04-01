@@ -95,6 +95,7 @@ const Book = () => {
   return (
     <main>
       <section className="relative h-[40vh] min-h-[300px] flex items-center justify-center gradient-hero">
+        <FlagStripe />
         <div className="relative z-10 text-center px-4">
           <nav className="text-antigua-white/50 text-sm font-body mb-3">
             <Link to="/" className="hover:text-antigua-white transition-colors">Home</Link>
