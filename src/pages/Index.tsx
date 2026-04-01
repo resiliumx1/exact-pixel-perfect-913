@@ -185,7 +185,7 @@ const Index = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/tours"
-                className="font-accent gradient-gold-cta text-antigua-black px-8 py-3.5 rounded-lg hover:scale-[1.03] hover:brightness-110 transition-all shadow-xl text-sm"
+                className="font-accent gradient-gold-cta text-antigua-black px-8 py-3.5 rounded-lg cta-glow-gold shadow-xl text-sm"
               >
                 EXPLORE TOURS
               </Link>
