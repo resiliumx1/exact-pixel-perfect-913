@@ -46,6 +46,7 @@ const TourDetail = () => {
     <main>
       {/* Hero */}
       <section className="relative h-[60vh] min-h-[400px] flex items-end overflow-hidden">
+        <FlagStripe />
         <img src={tour.image} alt={tour.title} className="absolute inset-0 w-full h-full object-cover" width={800} height={600} />
         <div className="absolute inset-0 bg-gradient-to-t from-antigua-black/80 via-antigua-black/30 to-transparent" />
         <div className="relative z-10 container mx-auto px-4 pb-10">

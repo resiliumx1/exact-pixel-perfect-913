@@ -53,6 +53,7 @@ const TaxiServices = () => {
     <main>
       {/* Hero */}
       <section className="relative h-[50vh] min-h-[360px] flex items-center justify-center overflow-hidden">
+        <FlagStripe />
         <img src={taxiHero} alt="Antigua taxi service at V.C. Bird Airport" className="absolute inset-0 w-full h-full object-cover" width={1920} height={600} />
         <div className="absolute inset-0 bg-gradient-to-b from-shadow/70 via-shadow/40 to-shadow/60" />
         <div className="relative z-10 text-center px-4">
