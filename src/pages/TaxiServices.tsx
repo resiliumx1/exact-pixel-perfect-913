@@ -4,6 +4,8 @@ import { motion, useInView } from "framer-motion";
 import { Plane, MapPin, Clock, Smartphone, Users } from "lucide-react";
 
 import taxiHero from "@/assets/taxi-hero.jpg";
+import FlagVShape from "@/components/antiguan/FlagVShape";
+import AntiguaFlagBadge from "@/components/antiguan/AntiguaFlagBadge";
 
 const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) => {
   const ref = useRef(null);
@@ -95,6 +97,12 @@ const TaxiServices = () => {
             <div className="hidden md:block overflow-hidden rounded-xl border border-mist">
               <table className="w-full">
                 <thead>
+                  <tr className="bg-ocean text-antigua-white relative">
+                    {/* V-shape pattern in header */}
+                    <th colSpan={5} className="h-0 p-0 relative">
+                      <FlagVShape variant="outline" opacity={0.08} className="text-antigua-white" />
+                    </th>
+                  </tr>
                   <tr className="bg-ocean text-antigua-white">
                     <th className="px-6 py-3 text-left text-sm font-body font-semibold">Route</th>
                     <th className="px-6 py-3 text-left text-sm font-body font-semibold">Destination</th>
@@ -108,7 +116,12 @@ const TaxiServices = () => {
                     <tr key={i} className={i % 2 === 0 ? "bg-sand" : "bg-background"}>
                       <td className="px-6 py-3.5 text-sm font-body text-foreground">{r.from}</td>
                       <td className="px-6 py-3.5 text-sm font-body text-foreground">{r.to}</td>
-                      <td className="px-6 py-3.5 text-sm font-body text-muted-foreground">{r.vehicle}</td>
+                      <td className="px-6 py-3.5 text-sm font-body text-muted-foreground">
+                        <span className="flex items-center gap-1.5">
+                          {r.vehicle}
+                          {r.vehicle === "Coaster Bus" && <AntiguaFlagBadge variant="compact" className="text-[9px] px-2 py-0.5" />}
+                        </span>
+                      </td>
                       <td className="px-6 py-3.5 text-sm font-body font-semibold text-antigua-gold">${r.price}</td>
                       <td className="px-6 py-3.5 text-right">
                         <Link to="/book" className="text-xs font-body font-semibold text-antigua-blue hover:underline">Book →</Link>

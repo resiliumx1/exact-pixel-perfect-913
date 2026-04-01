@@ -1,7 +1,7 @@
 import { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
-import { ChevronDown, Star, Award, Smartphone, Map, DollarSign, Clock, Shield, Bus, Car, Camera } from "lucide-react";
+import { ChevronDown, Award, Smartphone, Map, DollarSign, Clock, Shield, Bus, Car, Camera } from "lucide-react";
 
 import heroImg from "@/assets/hero-antigua.jpg";
 import tourIsland from "@/assets/tour-island.jpg";
@@ -15,6 +15,13 @@ import gallery3 from "@/assets/gallery-3.jpg";
 import gallery4 from "@/assets/gallery-4.jpg";
 import gallery5 from "@/assets/gallery-5.jpg";
 import gallery6 from "@/assets/gallery-6.jpg";
+
+import AntiguaSunIcon from "@/components/antiguan/AntiguaSunIcon";
+import FlagVShape from "@/components/antiguan/FlagVShape";
+import SectionDividerSun from "@/components/antiguan/SectionDividerSun";
+import WaveDivider from "@/components/antiguan/WaveDivider";
+import SunRating from "@/components/antiguan/SunRating";
+import AntiguaFlagBadge from "@/components/antiguan/AntiguaFlagBadge";
 
 /* ── Fade-in wrapper ── */
 const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) => {
@@ -34,7 +41,7 @@ const FadeIn = ({ children, delay = 0, className = "" }: { children: React.React
 };
 
 /* ── Counter ── */
-const Counter = ({ end, suffix, label }: { end: number; suffix: string; label: string }) => {
+const Counter = ({ end, suffix, label, icon }: { end: number; suffix: string; label: string; icon?: string }) => {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true });
   const [val, setVal] = useState(0);
@@ -56,6 +63,7 @@ const Counter = ({ end, suffix, label }: { end: number; suffix: string; label: s
 
   return (
     <div ref={ref} className="text-center">
+      {icon && <span className="text-2xl mb-1 block">{icon}</span>}
       <span className="text-4xl lg:text-5xl font-display font-bold text-ocean">
         {val.toLocaleString()}{suffix}
       </span>
@@ -90,12 +98,16 @@ const TourCard = ({ tour, i }: { tour: typeof tours[0]; i: number }) => (
     <span className="absolute bottom-4 left-4 bg-antigua-blue/90 text-antigua-white text-xs px-3 py-1 rounded-full font-body z-10">
       ⏱ {tour.duration}
     </span>
+    {/* Flag badge */}
+    <div className="absolute top-4 left-4 z-10">
+      <AntiguaFlagBadge variant="compact" className="bg-antigua-black/60 backdrop-blur-sm border-antigua-gold/20" />
+    </div>
     {/* Hover overlay */}
     <div className="absolute inset-0 bg-gradient-to-t from-antigua-black/80 via-antigua-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
       <div>
         <h3 className="text-antigua-white text-xl mb-2">{tour.title}</h3>
         <Link to="/tours" className="text-antigua-gold text-sm font-body font-semibold hover:underline">
-          View Tour →
+          Explore Antigua ☀️ →
         </Link>
       </div>
     </div>
@@ -142,6 +154,9 @@ const Index = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-shadow/80 via-shadow/40 to-transparent" />
 
+        {/* V-shape overlay */}
+        <FlagVShape variant="gradient" opacity={0.08} />
+
         <div className="relative z-10 text-center px-4 max-w-4xl">
           <FadeIn>
             <span className="inline-block font-body font-semibold text-antigua-gold text-xs tracking-[3px] mb-6">
@@ -185,7 +200,7 @@ const Index = () => {
         {/* Trust strip */}
         <div className="absolute bottom-0 left-0 right-0 bg-antigua-white/10 backdrop-blur-2xl border-t border-antigua-white/10">
           <div className="container mx-auto px-4 py-3 flex flex-wrap justify-center gap-6 lg:gap-12 text-antigua-white text-sm font-body">
-            <span className="flex items-center gap-2"><Star size={14} className="text-antigua-gold" /> 500+ Happy Tourists</span>
+            <span className="flex items-center gap-2"><AntiguaSunIcon size={14} className="text-antigua-gold" /> 500+ Happy Tourists</span>
             <span className="flex items-center gap-2"><Award size={14} className="text-antigua-gold" /> TripAdvisor Rated</span>
             <span className="flex items-center gap-2"><Smartphone size={14} className="text-antigua-gold" /> 24/7 WhatsApp Support</span>
           </div>
@@ -196,7 +211,7 @@ const Index = () => {
       <section className="bg-sand py-24 lg:py-32">
         <div className="container mx-auto px-4 max-w-3xl text-center">
           <FadeIn>
-            <div className="w-10 h-[3px] bg-antigua-gold mx-auto mb-6" />
+            <SectionDividerSun className="mb-6" />
           </FadeIn>
           <FadeIn delay={0.08}>
             <span className="font-body font-semibold text-antigua-blue text-xs tracking-[4px] uppercase">
@@ -212,12 +227,15 @@ const Index = () => {
             </p>
           </FadeIn>
           <div className="grid grid-cols-3 gap-6 lg:gap-12">
-            <Counter end={15} suffix="+" label="Years Experience" />
-            <Counter end={2000} suffix="+" label="Tours Completed" />
-            <Counter end={500} suffix="+" label="5-Star Reviews" />
+            <Counter end={15} suffix="+" label="Years Experience" icon="🌴" />
+            <Counter end={2000} suffix="+" label="Tours Completed" icon="🗺️" />
+            <Counter end={500} suffix="+" label="5-Star Reviews" icon="☀️" />
           </div>
         </div>
       </section>
+
+      {/* Wave transition */}
+      <WaveDivider fill="hsl(var(--background))" className="-mt-1 bg-sand" />
 
       {/* ─── SECTION 3: FEATURED TOURS ─── */}
       <section className="py-20 lg:py-28 bg-background">
@@ -242,7 +260,12 @@ const Index = () => {
 
       {/* ─── SECTION 4: FLEET ─── */}
       <section className="bg-shadow py-20 lg:py-28 relative overflow-hidden">
-        <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
+        {/* Sun watermark */}
+        <div className="absolute bottom-8 right-8 pointer-events-none opacity-[0.03]">
+          <AntiguaSunIcon size={400} className="text-antigua-gold" />
+        </div>
+
+        <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center relative z-10">
           <div>
             <FadeIn>
               <span className="font-body font-semibold text-antigua-gold text-xs tracking-[4px] uppercase">Our Fleet</span>
@@ -266,7 +289,7 @@ const Index = () => {
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {["A/C", "Sound System", "Comfortable Seating", "Luggage Space"].map((f) => (
-                    <span key={f} className="text-xs px-3 py-1 rounded-full border border-antigua-white/20 text-antigua-white/70 font-body">{f}</span>
+                    <span key={f} className="text-xs px-3 py-1 rounded-full border-l-2 border-antigua-gold/50 border border-antigua-white/20 text-antigua-white/70 font-body">{f}</span>
                   ))}
                 </div>
               </div>
@@ -287,7 +310,7 @@ const Index = () => {
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {["A/C", "Wi-Fi Available", "Clean & Professional"].map((f) => (
-                    <span key={f} className="text-xs px-3 py-1 rounded-full border border-antigua-white/20 text-antigua-white/70 font-body">{f}</span>
+                    <span key={f} className="text-xs px-3 py-1 rounded-full border-l-2 border-antigua-gold/50 border border-antigua-white/20 text-antigua-white/70 font-body">{f}</span>
                   ))}
                 </div>
               </div>
@@ -316,6 +339,9 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Wave transition */}
+      <WaveDivider fill="hsl(var(--tropical-sand))" className="bg-shadow" />
+
       {/* ─── SECTION 5: WHY CHOOSE US ─── */}
       <section className="bg-sand py-20 lg:py-28">
         <div className="container mx-auto px-4">
@@ -325,9 +351,13 @@ const Index = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((f, i) => (
               <FadeIn key={f.title} delay={i * 0.08}>
-                <div className="bg-background rounded-xl p-6 text-center hover:-translate-y-2 hover:shadow-xl transition-all duration-200">
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-antigua-gold/15 border border-antigua-gold/30 flex items-center justify-center">
-                    <f.icon className="text-antigua-gold" size={28} />
+                <div className="bg-background rounded-xl p-6 text-center hover:-translate-y-2 hover:shadow-xl transition-all duration-200 relative overflow-hidden">
+                  {/* V-shape container for icon */}
+                  <div className="w-16 h-16 mx-auto mb-4 relative flex items-center justify-center">
+                    <svg viewBox="0 0 64 64" className="absolute inset-0 w-full h-full text-antigua-gold/15" aria-hidden="true">
+                      <path d="M32 0 L64 64 L0 64 Z" fill="currentColor" />
+                    </svg>
+                    <f.icon className="text-antigua-gold relative z-10" size={26} />
                   </div>
                   <h3 className="text-lg mb-2 text-charcoal">{f.title}</h3>
                   <p className="text-sm text-charcoal/60 font-body">{f.desc}</p>
@@ -345,6 +375,9 @@ const Index = () => {
           "
         </div>
 
+        {/* V-shape watermark */}
+        <FlagVShape variant="outline" opacity={0.04} className="text-antigua-gold" />
+
         <div className="container mx-auto px-4 max-w-3xl text-center relative z-10">
           <div className="min-h-[200px] flex flex-col items-center justify-center">
             <motion.div
@@ -355,10 +388,8 @@ const Index = () => {
               transition={{ duration: 0.6 }}
               className="flex flex-col items-center"
             >
-              <div className="flex gap-1 mb-6">
-                {Array.from({ length: t.stars }).map((_, i) => (
-                  <Star key={i} size={18} className="text-antigua-gold fill-antigua-gold" />
-                ))}
+              <div className="mb-6">
+                <SunRating value={t.stars} size={18} />
               </div>
               <blockquote className="font-display italic text-antigua-white text-xl lg:text-2xl leading-relaxed mb-6">
                 "{t.quote}"
@@ -417,7 +448,7 @@ const Index = () => {
       {/* ─── SECTION 8: BOOKING CTA ─── */}
       <section className="relative bg-antigua-red py-20 lg:py-24 overflow-hidden">
         {/* V-shape pattern */}
-        <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0 opacity-[0.05]">
           <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
             <pattern id="vshape" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
               <path d="M10 0 L20 20 L0 20 Z" fill="white" />
@@ -436,13 +467,14 @@ const Index = () => {
             </p>
           </FadeIn>
           <FadeIn delay={0.2}>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
               <Link
                 to="/book"
                 className="font-accent gradient-gold-cta text-antigua-black px-10 py-4 rounded-lg hover:scale-[1.03] hover:brightness-110 transition-all shadow-xl text-sm"
               >
                 BOOK A TOUR
               </Link>
+              <AntiguaSunIcon size={20} className="text-antigua-gold hidden sm:block" />
               <a
                 href={`https://wa.me/12681234567?text=${encodeURIComponent("Hi Daryl! I just visited your website and I'd love to book a tour. 🌴")}`}
                 target="_blank"

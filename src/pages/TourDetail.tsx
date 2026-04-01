@@ -1,9 +1,11 @@
 import { useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
-import { Star, Clock, Users, Check, Info, MapPin, Shield, Smartphone, ChevronLeft, ChevronRight, X } from "lucide-react";
+import { Clock, Users, Check, Info, MapPin, Shield, Smartphone, ChevronLeft, ChevronRight, X } from "lucide-react";
 
 import { toursData } from "@/data/tours";
+import AntiguaSunIcon from "@/components/antiguan/AntiguaSunIcon";
+import SunRating from "@/components/antiguan/SunRating";
 
 const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) => {
   const ref = useRef(null);
@@ -24,8 +26,9 @@ const TourDetail = () => {
     return (
       <main className="min-h-screen flex items-center justify-center bg-sand">
         <div className="text-center px-4">
-          <span className="text-6xl block mb-4">🗺️</span>
+          <AntiguaSunIcon size={60} className="text-antigua-gold/30 mx-auto mb-4" />
           <h1 className="text-charcoal mb-4">Tour Not Found</h1>
+          <p className="text-muted-foreground font-body mb-4">This island adventure doesn't exist — yet! 🌊</p>
           <Link to="/tours" className="text-antigua-blue font-body font-semibold hover:underline">← Back to All Tours</Link>
         </div>
       </main>
@@ -57,8 +60,8 @@ const TourDetail = () => {
             <span className="flex items-center gap-1"><Clock size={14} /> {tour.duration}</span>
             <span className="flex items-center gap-1"><Users size={14} /> Up to {tour.maxGuests} guests</span>
             <span className="flex items-center gap-1">
-              <Star size={14} className="text-antigua-gold fill-antigua-gold" />
-              {tour.rating} ({tour.reviewCount} reviews)
+              <SunRating value={Math.round(tour.rating)} size={13} />
+              <span className="ml-1">{tour.rating} ({tour.reviewCount} reviews)</span>
             </span>
           </div>
         </div>
@@ -85,7 +88,7 @@ const TourDetail = () => {
                   <ul className="space-y-2.5">
                     {tour.included.map((item) => (
                       <li key={item} className="flex items-start gap-3 font-body text-muted-foreground">
-                        <Check size={18} className="text-emerald-500 flex-shrink-0 mt-0.5" />
+                        <AntiguaSunIcon size={16} className="text-antigua-gold flex-shrink-0 mt-0.5" />
                         {item}
                       </li>
                     ))}
@@ -118,9 +121,9 @@ const TourDetail = () => {
                     <div className="space-y-6">
                       {tour.itinerary.map((step, i) => (
                         <div key={i} className="relative">
-                          {/* Dot */}
-                          <div className="absolute -left-8 top-1 w-6 h-6 rounded-full bg-ocean flex items-center justify-center">
-                            <span className="text-antigua-white text-[10px] font-accent">{i + 1}</span>
+                          {/* Sun dot */}
+                          <div className="absolute -left-8 top-0.5">
+                            <AntiguaSunIcon size={22} className="text-antigua-gold" />
                           </div>
                           <div>
                             <h3 className="text-base font-semibold text-foreground font-body">{step.stop}</h3>
@@ -194,8 +197,14 @@ const TourDetail = () => {
             <div className="lg:w-[35%]">
               <div className="lg:sticky lg:top-28 space-y-4">
                 {/* Booking Card */}
-                <div className="bg-card rounded-xl border border-mist p-6 shadow-lg">
-                  <div className="text-center mb-5">
+                <div className="bg-card rounded-xl border border-mist p-6 shadow-lg relative overflow-hidden">
+                  {/* Red top border with sun notch */}
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-antigua-red" />
+                  <div className="absolute -top-1 left-1/2 -translate-x-1/2">
+                    <AntiguaSunIcon size={18} className="text-antigua-gold" />
+                  </div>
+
+                  <div className="text-center mb-5 mt-2">
                     <span className="text-antigua-gold font-display text-4xl font-bold">${tour.price}</span>
                     <span className="text-muted-foreground font-body text-sm ml-1">USD / person</span>
                   </div>
@@ -253,8 +262,8 @@ const TourDetail = () => {
                       Instant WhatsApp confirmation
                     </div>
                     <div className="flex items-center gap-2">
-                      <Star size={14} className="text-antigua-gold fill-antigua-gold" />
-                      {tour.rating} rating from {tour.reviewCount} reviews
+                      <SunRating value={Math.round(tour.rating)} size={12} />
+                      <span className="ml-1">{tour.rating} rating from {tour.reviewCount} reviews</span>
                     </div>
                   </div>
                 </div>
@@ -270,30 +279,18 @@ const TourDetail = () => {
           className="fixed inset-0 z-[9998] bg-antigua-black/95 flex items-center justify-center"
           onClick={() => setLightboxIdx(null)}
         >
-          <button
-            onClick={() => setLightboxIdx(null)}
-            className="absolute top-4 right-4 text-antigua-white/70 hover:text-antigua-white z-10"
-            aria-label="Close lightbox"
-          >
+          <button onClick={() => setLightboxIdx(null)} className="absolute top-4 right-4 text-antigua-white/70 hover:text-antigua-white z-10" aria-label="Close lightbox">
             <X size={28} />
           </button>
           <button
-            onClick={(e) => {
-              e.stopPropagation();
-              setLightboxIdx((lightboxIdx - 1 + tour.galleryImages.length) % tour.galleryImages.length);
-            }}
-            className="absolute left-4 text-antigua-white/70 hover:text-antigua-white z-10"
-            aria-label="Previous image"
+            onClick={(e) => { e.stopPropagation(); setLightboxIdx((lightboxIdx - 1 + tour.galleryImages.length) % tour.galleryImages.length); }}
+            className="absolute left-4 text-antigua-white/70 hover:text-antigua-white z-10" aria-label="Previous image"
           >
             <ChevronLeft size={36} />
           </button>
           <button
-            onClick={(e) => {
-              e.stopPropagation();
-              setLightboxIdx((lightboxIdx + 1) % tour.galleryImages.length);
-            }}
-            className="absolute right-4 text-antigua-white/70 hover:text-antigua-white z-10"
-            aria-label="Next image"
+            onClick={(e) => { e.stopPropagation(); setLightboxIdx((lightboxIdx + 1) % tour.galleryImages.length); }}
+            className="absolute right-4 text-antigua-white/70 hover:text-antigua-white z-10" aria-label="Next image"
           >
             <ChevronRight size={36} />
           </button>

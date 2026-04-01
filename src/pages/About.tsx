@@ -5,6 +5,10 @@ import { Shield, Heart, HandHelping } from "lucide-react";
 
 import darylImg from "@/assets/daryl-portrait.jpg";
 import heroImg from "@/assets/hero-antigua.jpg";
+import AntiguaSunIcon from "@/components/antiguan/AntiguaSunIcon";
+import AntiguaFlag from "@/components/antiguan/AntiguaFlag";
+import AntiguaFlagBadge from "@/components/antiguan/AntiguaFlagBadge";
+import SectionDividerSun from "@/components/antiguan/SectionDividerSun";
 
 const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) => {
   const ref = useRef(null);
@@ -28,6 +32,14 @@ const milestones = [
   { year: "2016", title: "Fleet Expansion", desc: "Added the Coaster Bus for group tours and wedding transfers." },
   { year: "2020", title: "Digital Presence", desc: "Launched online booking and grew to 5-star TripAdvisor status." },
   { year: "2024", title: "500+ Reviews", desc: "Reached 500+ five-star reviews and counting." },
+];
+
+const flagMeanings = [
+  { color: "bg-antigua-red", label: "Red", meaning: "Energy of the people & African heritage" },
+  { color: "bg-antigua-black", label: "Black", meaning: "African ancestry & soil of the nation" },
+  { color: "bg-antigua-blue", label: "Blue", meaning: "Hope, Caribbean sea & sky" },
+  { color: "bg-antigua-gold", label: "Gold", meaning: "Rising sun — dawn of a new era" },
+  { color: "bg-antigua-white", label: "White", meaning: "Sand & beaches of the islands" },
 ];
 
 const About = () => {
@@ -80,9 +92,17 @@ const About = () => {
                   <p>
                     With over 15 years of experience as a licensed tour operator and taxi service provider, Daryl has built a reputation for reliability, knowledge, and genuine hospitality. He doesn't just drive you from point A to point B — he takes you on a journey through the real Antigua, sharing stories that guidebooks don't tell.
                   </p>
-                  <p>
-                    Whether it's a full island tour, a sunset cruise, or a simple airport transfer, Daryl treats every guest like family. That's the Antiguan way, and it's the foundation of everything he does.
-                  </p>
+                  <blockquote className="border-l-4 border-antigua-gold pl-4 italic text-foreground/80">
+                    <span className="text-antigua-gold text-2xl font-display leading-none">"</span>
+                    Every guest I take out isn't just a customer — they're family. That's how we do things in Antigua.
+                    <span className="text-antigua-gold text-2xl font-display leading-none">"</span>
+                    <footer className="text-sm mt-2 not-italic text-muted-foreground">— Daryl</footer>
+                  </blockquote>
+                </div>
+              </FadeIn>
+              <FadeIn delay={0.3}>
+                <div className="mt-4">
+                  <AntiguaFlagBadge variant="full" />
                 </div>
               </FadeIn>
             </div>
@@ -101,8 +121,8 @@ const About = () => {
             {milestones.map((m, i) => (
               <FadeIn key={m.year} delay={i * 0.08}>
                 <div className="relative mb-8 last:mb-0">
-                  <div className="absolute -left-8 top-1 w-6 h-6 rounded-full bg-ocean flex items-center justify-center">
-                    <span className="text-antigua-white text-[8px] font-accent">{m.year.slice(2)}</span>
+                  <div className="absolute -left-8 top-0.5">
+                    <AntiguaSunIcon size={22} className="text-antigua-gold" />
                   </div>
                   <div>
                     <span className="text-antigua-gold font-body font-semibold text-sm">{m.year}</span>
@@ -138,27 +158,48 @@ const About = () => {
         </div>
       </section>
 
-      {/* Proudly Antiguan */}
+      {/* Proudly Antiguan — Born Under This Sun */}
       <section className="py-16 lg:py-20 gradient-ocean text-antigua-white">
-        <div className="container mx-auto px-4 max-w-3xl text-center">
+        <div className="container mx-auto px-4 max-w-4xl">
           <FadeIn>
-            <span className="text-5xl mb-4 block">🇦🇬</span>
-            <h2 className="text-antigua-white mb-6">Proudly Antiguan</h2>
-          </FadeIn>
-          <FadeIn delay={0.1}>
-            <div className="space-y-4 text-antigua-white/80 font-body leading-relaxed">
-              <p>
-                The Antigua & Barbuda flag tells a powerful story. The rising sun represents the dawn of a new era. The V-shape stands for victory. The colors embody the African heritage (black), the island's energy (red), and the hope of the Caribbean sea and sky (blue and white). The golden sun symbolizes the warmth and promise of these beautiful islands.
-              </p>
-              <p>
-                Daryl carries this pride into every tour. He's not just a driver — he's a cultural ambassador, sharing the heart and soul of Antigua with every visitor who steps into his vehicle.
-              </p>
+            <div className="text-center mb-10">
+              <SectionDividerSun className="mb-6" />
+              <h2 className="text-antigua-white mb-2">Born Under This Sun</h2>
+              <p className="text-antigua-white/60 font-body text-sm">The Antigua & Barbuda flag tells a powerful story</p>
             </div>
           </FadeIn>
-          <FadeIn delay={0.2}>
-            <Link to="/book" className="inline-block mt-8 gradient-gold-cta text-antigua-black font-accent px-8 py-3 rounded-lg hover:scale-[1.03] hover:brightness-110 transition-all shadow-lg text-sm">
-              BOOK YOUR EXPERIENCE
-            </Link>
+
+          <div className="grid lg:grid-cols-2 gap-10 items-center">
+            <FadeIn delay={0.1}>
+              <div className="flex justify-center">
+                <AntiguaFlag width={280} className="rounded-lg shadow-2xl" />
+              </div>
+            </FadeIn>
+
+            <FadeIn delay={0.2}>
+              <div className="space-y-3">
+                {flagMeanings.map((fm) => (
+                  <div key={fm.label} className="flex items-center gap-3 bg-antigua-white/5 rounded-lg p-3 border border-antigua-white/10">
+                    <div className={`w-8 h-8 rounded-full ${fm.color} flex-shrink-0 border border-antigua-white/20`} />
+                    <div>
+                      <span className="text-antigua-white font-body font-semibold text-sm">{fm.label}</span>
+                      <p className="text-antigua-white/60 text-xs font-body">{fm.meaning}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </FadeIn>
+          </div>
+
+          <FadeIn delay={0.3}>
+            <div className="text-center mt-10">
+              <p className="text-antigua-white/80 font-body leading-relaxed max-w-2xl mx-auto mb-8">
+                Daryl carries this pride into every tour. He's not just a driver — he's a cultural ambassador, sharing the heart and soul of Antigua with every visitor who steps into his vehicle.
+              </p>
+              <Link to="/book" className="inline-block gradient-gold-cta text-antigua-black font-accent px-8 py-3 rounded-lg hover:scale-[1.03] hover:brightness-110 transition-all shadow-lg text-sm">
+                BOOK YOUR EXPERIENCE
+              </Link>
+            </div>
           </FadeIn>
         </div>
       </section>
