@@ -146,6 +146,7 @@ const Index = () => {
     <main>
       {/* ─── SECTION 1: HERO ─── */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
+        <FlagStripe />
         <img
           src={heroImg}
           alt="Aerial view of Antigua coastline"
