@@ -231,7 +231,7 @@ const TourDetail = () => {
 
                   <Link
                     to="/book"
-                    className="block w-full text-center font-accent gradient-gold-cta text-antigua-black py-3.5 rounded-lg hover:scale-[1.02] hover:brightness-110 transition-all shadow-md text-sm mb-3"
+                    className="block w-full text-center font-accent gradient-gold-cta text-antigua-black py-3.5 rounded-lg cta-glow-gold shadow-md text-sm mb-3"
                   >
                     BOOK THIS TOUR
                   </Link>
