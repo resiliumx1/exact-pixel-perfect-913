@@ -501,6 +501,60 @@ const Index = () => {
           </FadeIn>
         </div>
       </section>
+
+      {/* JSON-LD Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "@id": "https://exact-pixel-perfect-913.lovable.app/#business",
+            name: "Daryl's Extreme Island Tours",
+            description: "Private tours, island excursions & reliable taxi transfers in Antigua & Barbuda. Over 15 years of experience sharing the beauty of Antigua.",
+            url: "https://exact-pixel-perfect-913.lovable.app",
+            telephone: "+12681234567",
+            email: "info@darylstours.com",
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "St. John's",
+              addressCountry: "AG",
+            },
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: 17.12,
+              longitude: -61.85,
+            },
+            image: "https://exact-pixel-perfect-913.lovable.app/og-image.jpg",
+            priceRange: "$18 - $120",
+            aggregateRating: {
+              "@type": "AggregateRating",
+              ratingValue: "5.0",
+              reviewCount: "500",
+              bestRating: "5",
+            },
+            sameAs: [
+              "https://instagram.com/darylsextremetours",
+              "https://facebook.com/darylsextremetours",
+              "https://tripadvisor.com/darylsextremetours",
+            ],
+            openingHoursSpecification: [
+              { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], opens: "06:00", closes: "22:00" },
+              { "@type": "OpeningHoursSpecification", dayOfWeek: "Sunday", opens: "07:00", closes: "20:00" },
+            ],
+            hasOfferCatalog: {
+              "@type": "OfferCatalog",
+              name: "Tours & Taxi Services",
+              itemListElement: [
+                { "@type": "Offer", itemOffered: { "@type": "TouristTrip", name: "Full Island Tour", description: "6-hour guided tour of Antigua's highlights" }, price: "85", priceCurrency: "USD" },
+                { "@type": "Offer", itemOffered: { "@type": "TouristTrip", name: "Beach Hopper", description: "4-hour tour visiting Antigua's best beaches" }, price: "65", priceCurrency: "USD" },
+                { "@type": "Offer", itemOffered: { "@type": "TouristTrip", name: "Historical Antigua", description: "5-hour heritage and history tour" }, price: "75", priceCurrency: "USD" },
+                { "@type": "Offer", itemOffered: { "@type": "TouristTrip", name: "Sunset Cruise", description: "3-hour sunset experience on the water" }, price: "95", priceCurrency: "USD" },
+              ],
+            },
+          }),
+        }}
+      />
     </main>
   );
 };
