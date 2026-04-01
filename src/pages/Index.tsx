@@ -22,6 +22,7 @@ import SectionDividerSun from "@/components/antiguan/SectionDividerSun";
 import WaveDivider from "@/components/antiguan/WaveDivider";
 import SunRating from "@/components/antiguan/SunRating";
 import AntiguaFlagBadge from "@/components/antiguan/AntiguaFlagBadge";
+import AntiguaFlagSmall from "@/components/antiguan/AntiguaFlagSmall";
 import FlagStripe from "@/components/antiguan/FlagStripe";
 import FadeIn from "@/components/FadeIn";
 
