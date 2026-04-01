@@ -5,6 +5,8 @@ import { Phone, Mail, MapPin, Smartphone, Check } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
 import { toursData } from "@/data/tours";
+import AntiguaSunIcon from "@/components/antiguan/AntiguaSunIcon";
+import AntiguaFlagBadge from "@/components/antiguan/AntiguaFlagBadge";
 
 const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) => {
   const ref = useRef(null);
@@ -64,12 +66,12 @@ const Book = () => {
       <main>
         <section className="min-h-screen flex items-center justify-center bg-sand pt-20">
           <div className="text-center px-4 max-w-md">
-            <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-whatsapp/20 flex items-center justify-center">
-              <Check className="text-whatsapp" size={40} />
+            <div className="mb-6">
+              <AntiguaSunIcon size={80} className="text-antigua-gold mx-auto animate-pulse-gold" />
             </div>
             <h1 className="text-foreground mb-4 text-3xl">Booking Request Received!</h1>
             <p className="text-muted-foreground font-body mb-6">
-              Daryl will confirm your booking via WhatsApp within 1 hour. Keep an eye on your phone!
+              Daryl will confirm your booking via WhatsApp within 1 hour. Keep an eye on your phone! 🌴
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link to="/" className="gradient-gold-cta text-antigua-black font-accent px-6 py-3 rounded-lg text-sm inline-block">
@@ -132,17 +134,19 @@ const Book = () => {
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-body font-medium text-foreground mb-1">Full Name *</label>
-                      <input value={form.name} onChange={e => set("name", e.target.value)} className="w-full border border-mist rounded-lg px-4 py-2.5 font-body text-sm focus:outline-none focus:border-antigua-blue bg-background text-foreground" required maxLength={100} />
+                      <input value={form.name} onChange={e => set("name", e.target.value)} className="w-full border border-mist rounded-lg px-4 py-2.5 font-body text-sm focus:outline-none focus:border-antigua-blue bg-background text-foreground" placeholder="e.g. Sarah Thompson" required maxLength={100} />
                     </div>
                     <div>
                       <label className="block text-sm font-body font-medium text-foreground mb-1">Email *</label>
-                      <input type="email" value={form.email} onChange={e => set("email", e.target.value)} className="w-full border border-mist rounded-lg px-4 py-2.5 font-body text-sm focus:outline-none focus:border-antigua-blue bg-background text-foreground" required maxLength={255} />
+                      <input type="email" value={form.email} onChange={e => set("email", e.target.value)} className="w-full border border-mist rounded-lg px-4 py-2.5 font-body text-sm focus:outline-none focus:border-antigua-blue bg-background text-foreground" placeholder="your@email.com" required maxLength={255} />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-sm font-body font-medium text-foreground mb-1">Phone *</label>
-                    <input type="tel" value={form.phone} onChange={e => set("phone", e.target.value)} className="w-full border border-mist rounded-lg px-4 py-2.5 font-body text-sm focus:outline-none focus:border-antigua-blue bg-background text-foreground" required maxLength={30} />
+                    <label className="block text-sm font-body font-medium text-foreground mb-1">
+                      <span className="flex items-center gap-1.5">Phone * <AntiguaFlagBadge variant="compact" className="text-[9px] px-2 py-0" /></span>
+                    </label>
+                    <input type="tel" value={form.phone} onChange={e => set("phone", e.target.value)} className="w-full border border-mist rounded-lg px-4 py-2.5 font-body text-sm focus:outline-none focus:border-antigua-blue bg-background text-foreground" placeholder="+1 (268) 000-0000" required maxLength={30} />
                   </div>
 
                   <label className="flex items-center gap-2 text-sm font-body text-muted-foreground cursor-pointer">
@@ -178,18 +182,18 @@ const Book = () => {
                     <div className="grid sm:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-sm font-body font-medium text-foreground mb-1">Pickup Location</label>
-                        <input value={form.pickup} onChange={e => set("pickup", e.target.value)} className="w-full border border-mist rounded-lg px-4 py-2.5 font-body text-sm focus:outline-none focus:border-antigua-blue bg-background text-foreground" maxLength={200} />
+                        <input value={form.pickup} onChange={e => set("pickup", e.target.value)} className="w-full border border-mist rounded-lg px-4 py-2.5 font-body text-sm focus:outline-none focus:border-antigua-blue bg-background text-foreground" placeholder="e.g. V.C. Bird Airport" maxLength={200} />
                       </div>
                       <div>
                         <label className="block text-sm font-body font-medium text-foreground mb-1">Drop-off Location</label>
-                        <input value={form.dropoff} onChange={e => set("dropoff", e.target.value)} className="w-full border border-mist rounded-lg px-4 py-2.5 font-body text-sm focus:outline-none focus:border-antigua-blue bg-background text-foreground" maxLength={200} />
+                        <input value={form.dropoff} onChange={e => set("dropoff", e.target.value)} className="w-full border border-mist rounded-lg px-4 py-2.5 font-body text-sm focus:outline-none focus:border-antigua-blue bg-background text-foreground" placeholder="e.g. Jolly Harbour" maxLength={200} />
                       </div>
                     </div>
                   )}
 
                   <div>
                     <label className="block text-sm font-body font-medium text-foreground mb-1">Special Requests</label>
-                    <textarea value={form.specialRequests} onChange={e => set("specialRequests", e.target.value)} className="w-full border border-mist rounded-lg px-4 py-2.5 font-body text-sm focus:outline-none focus:border-antigua-blue bg-background text-foreground min-h-[100px] resize-y" maxLength={1000} />
+                    <textarea value={form.specialRequests} onChange={e => set("specialRequests", e.target.value)} className="w-full border border-mist rounded-lg px-4 py-2.5 font-body text-sm focus:outline-none focus:border-antigua-blue bg-background text-foreground min-h-[100px] resize-y" placeholder="Tell us about any special requirements, celebrations, or dietary needs..." maxLength={1000} />
                   </div>
 
                   <div>
@@ -200,8 +204,13 @@ const Book = () => {
                     </select>
                   </div>
 
-                  <button type="submit" disabled={loading} className="w-full gradient-gold-cta text-antigua-black font-accent py-3.5 rounded-lg hover:scale-[1.02] hover:brightness-110 transition-all text-sm disabled:opacity-50">
-                    {loading ? "SUBMITTING..." : "REQUEST BOOKING"}
+                  <button type="submit" disabled={loading} className="w-full gradient-gold-cta text-antigua-black font-accent py-3.5 rounded-lg hover:scale-[1.02] hover:brightness-110 transition-all text-sm disabled:opacity-50 flex items-center justify-center gap-2">
+                    {loading ? (
+                      <>
+                        <AntiguaSunIcon size={16} className="text-antigua-black animate-spin-slow" />
+                        CATCHING THE ISLAND BREEZE...
+                      </>
+                    ) : "REQUEST BOOKING"}
                   </button>
 
                   <p className="text-xs text-muted-foreground font-body text-center">

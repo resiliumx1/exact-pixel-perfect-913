@@ -1,10 +1,13 @@
 import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
-import { Star, Clock, Users } from "lucide-react";
+import { Clock, Users } from "lucide-react";
 
 import toursHero from "@/assets/tours-hero.jpg";
 import { toursData, categories } from "@/data/tours";
+import AntiguaSunIcon from "@/components/antiguan/AntiguaSunIcon";
+import SunRating from "@/components/antiguan/SunRating";
+import FlagVShape from "@/components/antiguan/FlagVShape";
 
 const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) => {
   const ref = useRef(null);
@@ -32,6 +35,8 @@ const Tours = () => {
       <section className="relative h-[50vh] min-h-[360px] flex items-center justify-center overflow-hidden">
         <img src={toursHero} alt="Antigua coastline aerial view" className="absolute inset-0 w-full h-full object-cover" width={1920} height={600} />
         <div className="absolute inset-0 bg-gradient-to-b from-shadow/70 via-shadow/40 to-shadow/60" />
+        {/* V-shape overlay */}
+        <FlagVShape variant="outline" opacity={0.06} className="text-antigua-gold" />
         <div className="relative z-10 text-center px-4">
           <nav className="text-antigua-white/50 text-sm font-body mb-3">
             <Link to="/" className="hover:text-antigua-white transition-colors">Home</Link>
@@ -53,12 +58,13 @@ const Tours = () => {
               <button
                 key={cat.value}
                 onClick={() => setActive(cat.value)}
-                className={`px-5 py-2 rounded-full text-sm font-body font-medium transition-all whitespace-nowrap ${
+                className={`px-5 py-2 rounded-full text-sm font-body font-medium transition-all whitespace-nowrap flex items-center gap-1.5 ${
                   active === cat.value
                     ? "gradient-gold-cta text-antigua-black shadow-md"
                     : "border border-mist text-slate hover:border-antigua-blue hover:text-antigua-blue"
                 }`}
               >
+                {active === cat.value && <AntiguaSunIcon size={12} className="text-antigua-black" />}
                 {cat.label}
               </button>
             ))}
@@ -70,7 +76,10 @@ const Tours = () => {
       <section className="py-16 lg:py-20 bg-background">
         <div className="container mx-auto px-4">
           {filtered.length === 0 ? (
-            <p className="text-center text-slate font-body py-20">No tours found in this category.</p>
+            <div className="text-center py-20">
+              <AntiguaSunIcon size={48} className="text-antigua-gold/30 mx-auto mb-4" />
+              <p className="text-slate font-body">No tours found in this category. Try another!</p>
+            </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filtered.map((tour, i) => (
@@ -100,7 +109,7 @@ const Tours = () => {
                       {/* Hover overlay */}
                       <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-antigua-black/30 backdrop-blur-[2px]">
                         <span className="gradient-gold-cta text-antigua-black font-accent text-xs px-6 py-2.5 rounded-lg shadow-lg">
-                          VIEW DETAILS
+                          EXPLORE ANTIGUA ☀️
                         </span>
                       </div>
                     </div>
@@ -121,8 +130,8 @@ const Tours = () => {
                           </span>
                         </div>
                         <span className="flex items-center gap-1">
-                          <Star size={13} className="text-antigua-gold fill-antigua-gold" />
-                          {tour.rating} ({tour.reviewCount})
+                          <SunRating value={Math.round(tour.rating)} size={11} />
+                          <span className="ml-1">{tour.rating} ({tour.reviewCount})</span>
                         </span>
                       </div>
                     </div>
