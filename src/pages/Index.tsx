@@ -325,7 +325,7 @@ const Index = () => {
             </FadeIn>
 
             <FadeIn delay={0.32}>
-              <Link to="/book" className="font-accent gradient-gold-cta text-antigua-black px-8 py-3 rounded-lg hover:scale-[1.03] hover:brightness-110 transition-all shadow-lg text-sm inline-block">
+              <Link to="/book" className="font-accent gradient-gold-cta text-antigua-black px-8 py-3 rounded-lg cta-glow-gold shadow-lg text-sm inline-block">
                 GET A QUOTE
               </Link>
             </FadeIn>
