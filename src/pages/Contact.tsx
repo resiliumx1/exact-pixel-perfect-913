@@ -4,6 +4,7 @@ import { motion, useInView } from "framer-motion";
 import { Phone, Mail, MapPin, Clock, Smartphone } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
+import FlagStripe from "@/components/antiguan/FlagStripe";
 
 const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) => {
   const ref = useRef(null);
@@ -44,6 +45,7 @@ const Contact = () => {
   return (
     <main>
       <section className="relative h-[50vh] min-h-[360px] flex items-center justify-center gradient-hero">
+        <FlagStripe />
         <div className="relative z-10 text-center px-4">
           <nav className="text-antigua-white/50 text-sm font-body mb-3">
             <Link to="/" className="hover:text-antigua-white transition-colors">Home</Link>
@@ -81,7 +83,7 @@ const Contact = () => {
                     <label className="block text-sm font-body font-medium text-foreground mb-1">Message *</label>
                     <textarea value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} className="w-full border border-mist rounded-lg px-4 py-2.5 font-body text-sm focus:outline-none focus:border-antigua-blue transition-colors bg-background text-foreground min-h-[140px] resize-y" placeholder="How can we help you?" required maxLength={2000} />
                   </div>
-                  <button type="submit" disabled={loading} className="gradient-gold-cta text-antigua-black font-accent px-8 py-3 rounded-lg hover:scale-[1.02] hover:brightness-110 transition-all text-sm disabled:opacity-50">
+                  <button type="submit" disabled={loading} className="gradient-gold-cta text-antigua-black font-accent px-8 py-3 rounded-lg cta-glow-gold text-sm disabled:opacity-50">
                     {loading ? "SENDING..." : "SEND MESSAGE"}
                   </button>
                 </form>

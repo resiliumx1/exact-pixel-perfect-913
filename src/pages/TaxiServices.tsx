@@ -6,6 +6,7 @@ import { Plane, MapPin, Clock, Smartphone, Users } from "lucide-react";
 import taxiHero from "@/assets/taxi-hero.jpg";
 import FlagVShape from "@/components/antiguan/FlagVShape";
 import AntiguaFlagBadge from "@/components/antiguan/AntiguaFlagBadge";
+import FlagStripe from "@/components/antiguan/FlagStripe";
 
 const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) => {
   const ref = useRef(null);
@@ -52,6 +53,7 @@ const TaxiServices = () => {
     <main>
       {/* Hero */}
       <section className="relative h-[50vh] min-h-[360px] flex items-center justify-center overflow-hidden">
+        <FlagStripe />
         <img src={taxiHero} alt="Antigua taxi service at V.C. Bird Airport" className="absolute inset-0 w-full h-full object-cover" width={1920} height={600} />
         <div className="absolute inset-0 bg-gradient-to-b from-shadow/70 via-shadow/40 to-shadow/60" />
         <div className="relative z-10 text-center px-4">
@@ -189,7 +191,7 @@ const TaxiServices = () => {
                   </select>
                 </div>
               </div>
-              <button onClick={handleQuote} className="w-full gradient-gold-cta text-antigua-black font-accent py-3 rounded-lg hover:scale-[1.02] hover:brightness-110 transition-all text-sm flex items-center justify-center gap-2">
+              <button onClick={handleQuote} className="w-full gradient-gold-cta text-antigua-black font-accent py-3 rounded-lg cta-glow-gold text-sm flex items-center justify-center gap-2">
                 <Smartphone size={16} />
                 GET QUOTE VIA WHATSAPP
               </button>

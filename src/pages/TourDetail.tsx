@@ -6,6 +6,7 @@ import { Clock, Users, Check, Info, MapPin, Shield, Smartphone, ChevronLeft, Che
 import { toursData } from "@/data/tours";
 import AntiguaSunIcon from "@/components/antiguan/AntiguaSunIcon";
 import SunRating from "@/components/antiguan/SunRating";
+import FlagStripe from "@/components/antiguan/FlagStripe";
 
 const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) => {
   const ref = useRef(null);
@@ -45,6 +46,7 @@ const TourDetail = () => {
     <main>
       {/* Hero */}
       <section className="relative h-[60vh] min-h-[400px] flex items-end overflow-hidden">
+        <FlagStripe />
         <img src={tour.image} alt={tour.title} className="absolute inset-0 w-full h-full object-cover" width={800} height={600} />
         <div className="absolute inset-0 bg-gradient-to-t from-antigua-black/80 via-antigua-black/30 to-transparent" />
         <div className="relative z-10 container mx-auto px-4 pb-10">
@@ -230,7 +232,7 @@ const TourDetail = () => {
 
                   <Link
                     to="/book"
-                    className="block w-full text-center font-accent gradient-gold-cta text-antigua-black py-3.5 rounded-lg hover:scale-[1.02] hover:brightness-110 transition-all shadow-md text-sm mb-3"
+                    className="block w-full text-center font-accent gradient-gold-cta text-antigua-black py-3.5 rounded-lg cta-glow-gold shadow-md text-sm mb-3"
                   >
                     BOOK THIS TOUR
                   </Link>
@@ -311,7 +313,7 @@ const TourDetail = () => {
         </div>
         <Link
           to="/book"
-          className="font-accent gradient-gold-cta text-antigua-black px-6 py-2.5 rounded-lg text-xs shadow-lg"
+          className="font-accent gradient-gold-cta text-antigua-black px-6 py-2.5 rounded-lg text-xs shadow-lg cta-glow-gold"
         >
           BOOK THIS TOUR
         </Link>

@@ -74,7 +74,7 @@ const Navbar = () => {
           {/* Desktop CTA */}
           <Link
             to="/book"
-            className="hidden lg:flex items-center gap-1.5 font-accent text-sm gradient-gold-cta text-antigua-black px-6 py-2.5 rounded-lg hover:scale-[1.03] hover:brightness-110 transition-all duration-150 shadow-lg"
+            className="hidden lg:flex items-center gap-1.5 font-accent text-sm gradient-gold-cta text-antigua-black px-6 py-2.5 rounded-lg cta-glow-gold shadow-lg"
           >
             <AntiguaSunIcon size={12} className="text-antigua-black" />
             BOOK NOW

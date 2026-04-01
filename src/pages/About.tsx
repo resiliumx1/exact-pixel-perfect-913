@@ -9,6 +9,7 @@ import AntiguaSunIcon from "@/components/antiguan/AntiguaSunIcon";
 import AntiguaFlag from "@/components/antiguan/AntiguaFlag";
 import AntiguaFlagBadge from "@/components/antiguan/AntiguaFlagBadge";
 import SectionDividerSun from "@/components/antiguan/SectionDividerSun";
+import FlagStripe from "@/components/antiguan/FlagStripe";
 
 const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) => {
   const ref = useRef(null);
@@ -47,6 +48,7 @@ const About = () => {
     <main>
       {/* Hero */}
       <section className="relative h-[50vh] min-h-[360px] flex items-center justify-center overflow-hidden">
+        <FlagStripe />
         <img src={heroImg} alt="Antigua coastline" className="absolute inset-0 w-full h-full object-cover" width={1920} height={1080} />
         <div className="absolute inset-0 bg-gradient-to-b from-shadow/70 via-shadow/40 to-shadow/60" />
         <div className="relative z-10 text-center px-4">
@@ -196,7 +198,7 @@ const About = () => {
               <p className="text-antigua-white/80 font-body leading-relaxed max-w-2xl mx-auto mb-8">
                 Daryl carries this pride into every tour. He's not just a driver — he's a cultural ambassador, sharing the heart and soul of Antigua with every visitor who steps into his vehicle.
               </p>
-              <Link to="/book" className="inline-block gradient-gold-cta text-antigua-black font-accent px-8 py-3 rounded-lg hover:scale-[1.03] hover:brightness-110 transition-all shadow-lg text-sm">
+              <Link to="/book" className="inline-block gradient-gold-cta text-antigua-black font-accent px-8 py-3 rounded-lg cta-glow-gold shadow-lg text-sm">
                 BOOK YOUR EXPERIENCE
               </Link>
             </div>

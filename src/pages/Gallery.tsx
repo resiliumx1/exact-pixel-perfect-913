@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, Expand } from "lucide-react";
 
+import FlagStripe from "@/components/antiguan/FlagStripe";
 import gallery1 from "@/assets/gallery-1.jpg";
 import gallery2 from "@/assets/gallery-2.jpg";
 import gallery3 from "@/assets/gallery-3.jpg";
@@ -59,6 +60,7 @@ const Gallery = () => {
     <main>
       {/* Hero */}
       <section className="relative h-[40vh] min-h-[300px] flex items-center justify-center gradient-hero">
+        <FlagStripe />
         <div className="relative z-10 text-center px-4">
           <nav className="text-antigua-white/50 text-sm font-body mb-3">
             <Link to="/" className="hover:text-antigua-white transition-colors">Home</Link>

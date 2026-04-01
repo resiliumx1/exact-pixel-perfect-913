@@ -22,6 +22,7 @@ import SectionDividerSun from "@/components/antiguan/SectionDividerSun";
 import WaveDivider from "@/components/antiguan/WaveDivider";
 import SunRating from "@/components/antiguan/SunRating";
 import AntiguaFlagBadge from "@/components/antiguan/AntiguaFlagBadge";
+import FlagStripe from "@/components/antiguan/FlagStripe";
 
 /* ── Fade-in wrapper ── */
 const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) => {
@@ -145,6 +146,7 @@ const Index = () => {
     <main>
       {/* ─── SECTION 1: HERO ─── */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
+        <FlagStripe />
         <img
           src={heroImg}
           alt="Aerial view of Antigua coastline"
@@ -159,13 +161,19 @@ const Index = () => {
 
         <div className="relative z-10 text-center px-4 max-w-4xl">
           <FadeIn>
-            <span className="inline-block font-body font-semibold text-antigua-gold text-xs tracking-[3px] mb-6">
-              🌴 ANTIGUA'S PREMIER TOUR EXPERIENCE
+            <span className="inline-flex items-center gap-2 font-body font-semibold text-antigua-gold text-xs tracking-[3px] mb-6">
+              <svg viewBox="0 0 20 12" width="20" height="12" aria-hidden="true">
+                <rect width="20" height="4" y="0" fill="#CE1126" />
+                <rect width="20" height="4" y="4" fill="#0A0A0A" />
+                <rect width="20" height="4" y="8" fill="#0072C6" />
+              </svg>
+              ANTIGUA'S PREMIER TOUR EXPERIENCE
             </span>
           </FadeIn>
           <FadeIn delay={0.15}>
             <h1 className="text-hero text-antigua-white mb-6">
-              Discover Antigua Like Never Before
+              <span className="block">Discover Antigua</span>
+              <span className="block gradient-sunset bg-clip-text text-transparent">Like Never Before</span>
             </h1>
           </FadeIn>
           <FadeIn delay={0.3}>
@@ -177,13 +185,13 @@ const Index = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/tours"
-                className="font-accent gradient-gold-cta text-antigua-black px-8 py-3.5 rounded-lg hover:scale-[1.03] hover:brightness-110 transition-all shadow-xl text-sm"
+                className="font-accent gradient-gold-cta text-antigua-black px-8 py-3.5 rounded-lg cta-glow-gold shadow-xl text-sm"
               >
                 EXPLORE TOURS
               </Link>
               <Link
-                to="/book"
-                className="font-body font-semibold border-2 border-antigua-white text-antigua-white px-8 py-3.5 rounded-lg hover:bg-antigua-white hover:text-antigua-black transition-all text-sm"
+                to="/taxi-services"
+                className="font-body font-semibold border-2 border-antigua-white text-antigua-white px-8 py-3.5 rounded-lg cta-glow-outline text-sm"
               >
                 BOOK A TAXI
               </Link>
@@ -317,7 +325,7 @@ const Index = () => {
             </FadeIn>
 
             <FadeIn delay={0.32}>
-              <Link to="/book" className="font-accent gradient-gold-cta text-antigua-black px-8 py-3 rounded-lg hover:scale-[1.03] hover:brightness-110 transition-all shadow-lg text-sm inline-block">
+              <Link to="/book" className="font-accent gradient-gold-cta text-antigua-black px-8 py-3 rounded-lg cta-glow-gold shadow-lg text-sm inline-block">
                 GET A QUOTE
               </Link>
             </FadeIn>
@@ -470,7 +478,7 @@ const Index = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
               <Link
                 to="/book"
-                className="font-accent gradient-gold-cta text-antigua-black px-10 py-4 rounded-lg hover:scale-[1.03] hover:brightness-110 transition-all shadow-xl text-sm"
+                className="font-accent gradient-gold-cta text-antigua-black px-10 py-4 rounded-lg cta-glow-gold shadow-xl text-sm"
               >
                 BOOK A TOUR
               </Link>

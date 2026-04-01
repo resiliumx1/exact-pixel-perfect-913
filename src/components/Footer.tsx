@@ -29,15 +29,33 @@ const Footer = () => {
               Your trusted partner for unforgettable island tours and reliable taxi services in Antigua & Barbuda.
             </p>
             <div className="flex gap-3">
-              {[Instagram, Facebook].map((Icon, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  className="w-9 h-9 rounded-full border border-antigua-white/20 flex items-center justify-center hover:border-antigua-gold hover:text-antigua-gold transition-colors"
-                >
-                  <Icon size={16} />
-                </a>
-              ))}
+              <a
+                href="https://instagram.com/darylsextremetours"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full border border-antigua-white/20 flex items-center justify-center hover:border-antigua-gold hover:text-antigua-gold transition-colors"
+              >
+                <Instagram size={16} />
+              </a>
+              <a
+                href="https://facebook.com/darylsextremetours"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full border border-antigua-white/20 flex items-center justify-center hover:border-antigua-gold hover:text-antigua-gold transition-colors"
+              >
+                <Facebook size={16} />
+              </a>
+              <a
+                href="https://tripadvisor.com/darylsextremetours"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full border border-antigua-white/20 flex items-center justify-center hover:border-antigua-gold hover:text-antigua-gold transition-colors"
+                aria-label="TripAdvisor"
+              >
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15a3 3 0 110-6 3 3 0 010 6zm4 0a3 3 0 110-6 3 3 0 010 6zm2.5-7.5L19 7h-3.5A7.49 7.49 0 0012 5.5 7.49 7.49 0 008.5 7H5l2.5 2.5A4.98 4.98 0 006 13a5 5 0 005 5h2a5 5 0 005-5 4.98 4.98 0 00-1.5-3.5z"/>
+                </svg>
+              </a>
             </div>
           </div>
 

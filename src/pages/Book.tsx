@@ -7,6 +7,7 @@ import { toast } from "@/hooks/use-toast";
 import { toursData } from "@/data/tours";
 import AntiguaSunIcon from "@/components/antiguan/AntiguaSunIcon";
 import AntiguaFlagBadge from "@/components/antiguan/AntiguaFlagBadge";
+import FlagStripe from "@/components/antiguan/FlagStripe";
 
 const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) => {
   const ref = useRef(null);
@@ -94,6 +95,7 @@ const Book = () => {
   return (
     <main>
       <section className="relative h-[40vh] min-h-[300px] flex items-center justify-center gradient-hero">
+        <FlagStripe />
         <div className="relative z-10 text-center px-4">
           <nav className="text-antigua-white/50 text-sm font-body mb-3">
             <Link to="/" className="hover:text-antigua-white transition-colors">Home</Link>
@@ -204,7 +206,7 @@ const Book = () => {
                     </select>
                   </div>
 
-                  <button type="submit" disabled={loading} className="w-full gradient-gold-cta text-antigua-black font-accent py-3.5 rounded-lg hover:scale-[1.02] hover:brightness-110 transition-all text-sm disabled:opacity-50 flex items-center justify-center gap-2">
+                  <button type="submit" disabled={loading} className="w-full gradient-gold-cta text-antigua-black font-accent py-3.5 rounded-lg cta-glow-gold text-sm disabled:opacity-50 flex items-center justify-center gap-2">
                     {loading ? (
                       <>
                         <AntiguaSunIcon size={16} className="text-antigua-black animate-spin-slow" />
