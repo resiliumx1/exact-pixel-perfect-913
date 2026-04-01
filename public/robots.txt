@@ -1,6 +1,8 @@
 # Allow all crawlers including AI agents
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /admin/
 
 # Explicitly allow AI crawlers
 User-agent: Claude-Web
