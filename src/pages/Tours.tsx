@@ -1,6 +1,5 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { motion, useInView } from "framer-motion";
 import { Clock, Users } from "lucide-react";
 
 import toursHero from "@/assets/tours-hero.jpg";
@@ -9,16 +8,7 @@ import AntiguaSunIcon from "@/components/antiguan/AntiguaSunIcon";
 import SunRating from "@/components/antiguan/SunRating";
 import FlagVShape from "@/components/antiguan/FlagVShape";
 import FlagStripe from "@/components/antiguan/FlagStripe";
-
-const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) => {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-40px" });
-  return (
-    <motion.div ref={ref} initial={{ opacity: 0, y: 24 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, ease: "easeOut", delay }} className={className}>
-      {children}
-    </motion.div>
-  );
-};
+import FadeIn from "@/components/FadeIn";
 
 const difficultyColor: Record<string, string> = {
   Easy: "bg-emerald-500/90",

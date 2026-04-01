@@ -1,22 +1,12 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { motion, useInView } from "framer-motion";
 import { Plane, MapPin, Clock, Smartphone, Users } from "lucide-react";
 
 import taxiHero from "@/assets/taxi-hero.jpg";
 import FlagVShape from "@/components/antiguan/FlagVShape";
 import AntiguaFlagBadge from "@/components/antiguan/AntiguaFlagBadge";
 import FlagStripe from "@/components/antiguan/FlagStripe";
-
-const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) => {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-40px" });
-  return (
-    <motion.div ref={ref} initial={{ opacity: 0, y: 24 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, ease: "easeOut", delay }} className={className}>
-      {children}
-    </motion.div>
-  );
-};
+import FadeIn from "@/components/FadeIn";
 
 const services = [
   { icon: Plane, title: "Airport Transfers", desc: "V.C. Bird International ↔ anywhere on island. Fixed pricing with pickup sign service." },
