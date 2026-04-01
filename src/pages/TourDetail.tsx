@@ -329,10 +329,32 @@ const TourDetail = () => {
             name: tour.title,
             description: tour.description,
             touristType: tour.category,
+            url: `https://exact-pixel-perfect-913.lovable.app/tours/${tour.slug}`,
+            provider: {
+              "@type": "LocalBusiness",
+              name: "Daryl's Extreme Island Tours",
+              telephone: "+12681234567",
+            },
             offers: {
               "@type": "Offer",
               price: tour.price.toFixed(2),
               priceCurrency: "USD",
+              availability: "https://schema.org/InStock",
+            },
+            aggregateRating: {
+              "@type": "AggregateRating",
+              ratingValue: tour.rating.toString(),
+              reviewCount: tour.reviewCount.toString(),
+              bestRating: "5",
+            },
+            itinerary: {
+              "@type": "ItemList",
+              itemListElement: tour.itinerary.map((step, i) => ({
+                "@type": "ListItem",
+                position: i + 1,
+                name: step.stop,
+                description: step.description,
+              })),
             },
           }),
         }}
