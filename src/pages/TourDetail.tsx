@@ -6,6 +6,7 @@ import { Clock, Users, Check, Info, MapPin, Shield, Smartphone, ChevronLeft, Che
 import { toursData } from "@/data/tours";
 import AntiguaSunIcon from "@/components/antiguan/AntiguaSunIcon";
 import SunRating from "@/components/antiguan/SunRating";
+import FlagStripe from "@/components/antiguan/FlagStripe";
 
 const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) => {
   const ref = useRef(null);
