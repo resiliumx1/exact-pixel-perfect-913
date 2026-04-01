@@ -22,6 +22,7 @@ import SectionDividerSun from "@/components/antiguan/SectionDividerSun";
 import WaveDivider from "@/components/antiguan/WaveDivider";
 import SunRating from "@/components/antiguan/SunRating";
 import AntiguaFlagBadge from "@/components/antiguan/AntiguaFlagBadge";
+import FlagStripe from "@/components/antiguan/FlagStripe";
 
 /* ── Fade-in wrapper ── */
 const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) => {
