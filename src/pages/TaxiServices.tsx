@@ -199,6 +199,35 @@ const TaxiServices = () => {
           </FadeIn>
         </div>
       </section>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: "Antigua Taxi & Transfer Services",
+            description: "Airport transfers, point-to-point rides, and hourly hire in Antigua & Barbuda. Professional, punctual, and affordable.",
+            url: "https://exact-pixel-perfect-913.lovable.app/taxi-services",
+            provider: {
+              "@type": "LocalBusiness",
+              name: "Daryl's Extreme Island Tours",
+              telephone: "+12681234567",
+            },
+            areaServed: { "@type": "Country", name: "Antigua and Barbuda" },
+            hasOfferCatalog: {
+              "@type": "OfferCatalog",
+              name: "Taxi Routes",
+              itemListElement: routes.map((r) => ({
+                "@type": "Offer",
+                itemOffered: { "@type": "Service", name: `${r.from} → ${r.to}` },
+                price: r.price.toString(),
+                priceCurrency: "USD",
+              })),
+            },
+          }),
+        }}
+      />
     </main>
   );
 };

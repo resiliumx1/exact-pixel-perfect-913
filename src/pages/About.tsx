@@ -205,6 +205,26 @@ const About = () => {
           </FadeIn>
         </div>
       </section>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "AboutPage",
+            mainEntity: {
+              "@type": "Person",
+              name: "Daryl",
+              jobTitle: "Tour Guide & Owner",
+              worksFor: {
+                "@type": "LocalBusiness",
+                name: "Daryl's Extreme Island Tours",
+              },
+              knowsAbout: ["Antigua tourism", "Caribbean history", "Island tours", "Antigua & Barbuda culture"],
+            },
+          }),
+        }}
+      />
     </main>
   );
 };
