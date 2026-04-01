@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Outlet, Link, useNavigate, useLocation } from "react-router-dom";
-import { supabase } from "@/integrations/supabase/client";
 import { LayoutDashboard, Calendar, MessageSquare, MapPin, Image, Star, Settings, ArrowLeft, LogOut, Menu, X } from "lucide-react";
 
 const navItems = [
@@ -18,22 +17,8 @@ const AdminLayout = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  useEffect(() => {
-    const checkAuth = async () => {
-      const { data: { session } } = await supabase.auth.getSession();
-      if (!session) navigate("/admin/login");
-    };
-    checkAuth();
-
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_, session) => {
-      if (!session) navigate("/admin/login");
-    });
-    return () => subscription.unsubscribe();
-  }, [navigate]);
-
-  const handleLogout = async () => {
-    await supabase.auth.signOut();
-    navigate("/admin/login");
+  const handleLogout = () => {
+    navigate("/");
   };
 
   return (
@@ -75,7 +60,7 @@ const AdminLayout = () => {
               <ArrowLeft size={18} /> Back to Site
             </Link>
             <button onClick={handleLogout} className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-body text-antigua-white/40 hover:text-antigua-red transition-colors">
-              <LogOut size={18} /> Sign Out
+              <LogOut size={18} /> Exit Admin
             </button>
           </div>
         </div>

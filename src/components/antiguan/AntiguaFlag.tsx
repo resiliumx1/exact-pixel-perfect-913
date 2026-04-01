@@ -5,40 +5,51 @@ interface AntiguaFlagProps {
   className?: string;
 }
 
-/**
- * Full SVG recreation of the Antigua & Barbuda flag — no raster image.
- */
 const AntiguaFlag = ({ width = 300, className = "" }: AntiguaFlagProps) => {
   const height = width * (2 / 3);
   return (
     <svg
-      viewBox="0 0 450 300"
+      viewBox="0 0 900 600"
       width={width}
       height={height}
       className={cn(className)}
       aria-label="Flag of Antigua and Barbuda"
       role="img"
     >
-      {/* Black background */}
-      <rect width="450" height="300" fill="#0A0A0A" />
-      {/* Red triangles (left and right) */}
-      <polygon points="0,0 225,300 0,300" fill="#CE1126" />
-      <polygon points="450,0 225,300 450,300" fill="#CE1126" />
-      {/* Blue top section */}
-      <polygon points="0,0 450,0 225,200" fill="#0072C6" />
-      {/* White V-shape bands */}
-      <polygon points="0,0 30,0 225,175 420,0 450,0 225,200" fill="#FFFFFF" />
-      {/* Golden rising sun */}
-      <g transform="translate(225,140)">
-        {/* Sun body */}
-        <path d="M-40,0 A40,40 0 0 1 40,0" fill="#FCD116" />
-        {/* 7 rays */}
-        {Array.from({ length: 7 }, (_, i) => {
-          const angle = Math.PI - (i * Math.PI) / 6;
-          const x = Math.cos(angle) * 70;
-          const y = -Math.sin(angle) * 70;
-          return <line key={i} x1={Math.cos(angle) * 15} y1={-Math.sin(angle) * 15} x2={x} y2={y} stroke="#FCD116" strokeWidth="6" strokeLinecap="round" />;
-        })}
+      {/* Red field — entire background */}
+      <rect width="900" height="600" fill="#CE1126" />
+
+      {/* Inverted V-triangle clipping region */}
+      <defs>
+        <clipPath id="flagVClip">
+          <polygon points="0,0 900,0 450,600" />
+        </clipPath>
+      </defs>
+
+      {/* Bands inside the V-triangle */}
+      <g clipPath="url(#flagVClip)">
+        {/* Black band — top */}
+        <rect width="900" height="250" fill="#000000" />
+        {/* Blue band — middle */}
+        <rect y="250" width="900" height="120" fill="#0072C6" />
+        {/* White band — bottom */}
+        <rect y="370" width="900" height="230" fill="#FFFFFF" />
+      </g>
+
+      {/* Golden rising sun — centered on the black band */}
+      <g transform="translate(450, 200)">
+        {/* Half-sun semicircle body */}
+        <path d="M-55,0 A55,55 0 0 1 55,0 Z" fill="#FCD116" />
+        {/* Horizon line */}
+        <line x1="-80" y1="0" x2="80" y2="0" stroke="#FCD116" strokeWidth="4" />
+        {/* 7 triangular rays */}
+        <polygon points="0,-90 -8,-30 8,-30" fill="#FCD116" />
+        <polygon points="-43,-78 -26,-26 -10,-34" fill="#FCD116" />
+        <polygon points="-76,-45 -42,-16 -30,-30" fill="#FCD116" />
+        <polygon points="-88,-5 -50,-2 -44,-18" fill="#FCD116" />
+        <polygon points="43,-78 26,-26 10,-34" fill="#FCD116" />
+        <polygon points="76,-45 42,-16 30,-30" fill="#FCD116" />
+        <polygon points="88,-5 50,-2 44,-18" fill="#FCD116" />
       </g>
     </svg>
   );

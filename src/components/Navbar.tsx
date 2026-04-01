@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Settings } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import AntiguaSunIcon from "./antiguan/AntiguaSunIcon";
 import FlagVShape from "./antiguan/FlagVShape";
@@ -72,13 +72,22 @@ const Navbar = () => {
           </div>
 
           {/* Desktop CTA */}
-          <Link
-            to="/book"
-            className="hidden lg:flex items-center gap-1.5 font-accent text-sm gradient-gold-cta text-antigua-black px-6 py-2.5 rounded-lg cta-glow-gold shadow-lg"
-          >
-            <AntiguaSunIcon size={12} className="text-antigua-black" />
-            BOOK NOW
-          </Link>
+          <div className="hidden lg:flex items-center gap-4">
+            <Link
+              to="/admin"
+              className="flex items-center gap-1 font-body text-xs text-antigua-white/40 hover:text-antigua-white/70 transition-colors"
+            >
+              <Settings size={13} />
+              Admin
+            </Link>
+            <Link
+              to="/book"
+              className="flex items-center gap-1.5 font-accent text-sm gradient-gold-cta text-antigua-black px-6 py-2.5 rounded-lg cta-glow-gold shadow-lg"
+            >
+              <AntiguaSunIcon size={12} className="text-antigua-black" />
+              BOOK NOW
+            </Link>
+          </div>
 
           {/* Mobile Hamburger */}
           <button
@@ -133,6 +142,18 @@ const Navbar = () => {
               >
                 <AntiguaSunIcon size={14} className="text-antigua-black" />
                 BOOK NOW
+              </Link>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.35 }}
+            >
+              <Link
+                to="/admin"
+                className="text-antigua-white/30 font-body text-sm hover:text-antigua-white/60 transition-colors"
+              >
+                Admin Dashboard
               </Link>
             </motion.div>
             <motion.div

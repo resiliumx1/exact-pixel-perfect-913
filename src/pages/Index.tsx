@@ -22,6 +22,7 @@ import SectionDividerSun from "@/components/antiguan/SectionDividerSun";
 import WaveDivider from "@/components/antiguan/WaveDivider";
 import SunRating from "@/components/antiguan/SunRating";
 import AntiguaFlagBadge from "@/components/antiguan/AntiguaFlagBadge";
+import AntiguaFlagSmall from "@/components/antiguan/AntiguaFlagSmall";
 import FlagStripe from "@/components/antiguan/FlagStripe";
 import FadeIn from "@/components/FadeIn";
 
@@ -130,7 +131,6 @@ const Index = () => {
     <main>
       {/* ─── SECTION 1: HERO ─── */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <FlagStripe />
         <img
           src={heroImg}
           alt="Aerial view of Antigua coastline"
@@ -140,58 +140,102 @@ const Index = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-shadow/80 via-shadow/40 to-transparent" />
 
+        {/* Flag stripe */}
+        <FlagStripe />
+
         {/* V-shape overlay */}
         <FlagVShape variant="gradient" opacity={0.08} />
 
-        <div className="relative z-10 text-center px-4 max-w-4xl">
-          <FadeIn>
-            <span className="inline-flex items-center gap-2 font-body font-semibold text-antigua-gold text-xs tracking-[3px] mb-6">
-              <svg viewBox="0 0 20 12" width="20" height="12" aria-hidden="true">
-                <rect width="20" height="4" y="0" fill="#CE1126" />
-                <rect width="20" height="4" y="4" fill="#0A0A0A" />
-                <rect width="20" height="4" y="8" fill="#0072C6" />
-              </svg>
+        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+          {/* Flag badge + overline */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="inline-flex items-center gap-2.5 mb-8"
+          >
+            <AntiguaFlagSmall width={28} />
+            <span className="font-body font-semibold text-antigua-gold text-xs tracking-[3px]">
               ANTIGUA'S PREMIER TOUR EXPERIENCE
             </span>
-          </FadeIn>
-          <FadeIn delay={0.15}>
-            <h1 className="text-hero text-antigua-white mb-6">
-              <span className="block">Discover Antigua</span>
-              <span className="block gradient-sunset bg-clip-text text-transparent">Like Never Before</span>
+          </motion.div>
+
+          {/* Main heading — two lines, second line has gradient */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.25 }}
+          >
+            <h1 className="text-antigua-white leading-[1.05] mb-1" style={{ fontSize: 'clamp(2.8rem, 8vw, 5.5rem)', fontWeight: 900, letterSpacing: '-1px' }}>
+              Discover Antigua
             </h1>
-          </FadeIn>
-          <FadeIn delay={0.3}>
-            <p className="text-antigua-white/80 text-lg lg:text-xl max-w-2xl mx-auto mb-8 font-body">
-              Private tours, island excursions & reliable taxi transfers — experience the real Antigua with Daryl.
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.45}>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to="/tours"
-                className="font-accent gradient-gold-cta text-antigua-black px-8 py-3.5 rounded-lg cta-glow-gold shadow-xl text-sm"
-              >
-                EXPLORE TOURS
-              </Link>
-              <Link
-                to="/taxi-services"
-                className="font-body font-semibold border-2 border-antigua-white text-antigua-white px-8 py-3.5 rounded-lg cta-glow-outline text-sm"
-              >
-                BOOK A TAXI
-              </Link>
-            </div>
-          </FadeIn>
+            <span
+              className="block leading-[1.05] font-display"
+              style={{
+                fontSize: 'clamp(2.8rem, 8vw, 5.5rem)',
+                fontWeight: 900,
+                letterSpacing: '-1px',
+                background: 'linear-gradient(135deg, #FCD116 0%, #E8A817 40%, #FCD116 65%, #CE1126 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
+            >
+              Like Never Before
+            </span>
+          </motion.div>
+
+          {/* Flag-colored divider */}
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+            className="mx-auto mt-5 mb-6 rounded-full origin-center"
+            style={{ width: '60px', height: '3px', background: 'linear-gradient(90deg, #CE1126, #FCD116, #0072C6)' }}
+          />
+
+          {/* Subtext */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
+            className="text-antigua-white/80 text-lg lg:text-xl max-w-xl mx-auto mb-10 font-body leading-relaxed"
+          >
+            Step off the cruise ship and into the real Antigua. Private island tours, hidden beach excursions, and reliable taxi transfers — all with Daryl, your born-and-raised local guide.
+          </motion.p>
+
+          {/* CTA Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.85 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+          >
+            <Link
+              to="/tours"
+              className="font-accent gradient-gold-cta text-antigua-black px-8 py-3.5 rounded-lg cta-glow-gold text-sm inline-flex items-center justify-center gap-2"
+            >
+              <AntiguaSunIcon size={14} className="text-antigua-black" />
+              EXPLORE TOURS
+            </Link>
+            <Link
+              to="/taxi-services"
+              className="font-body font-semibold border-2 border-antigua-white/50 text-antigua-white px-8 py-3.5 rounded-lg cta-glow-outline text-sm"
+            >
+              BOOK A TAXI
+            </Link>
+          </motion.div>
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-24 left-1/2 -translate-x-1/2 flex flex-col items-center text-antigua-white/50 animate-bounce-slow">
-          <span className="text-xs font-body mb-1">Scroll to explore</span>
-          <ChevronDown size={20} />
+        <div className="absolute bottom-24 left-1/2 -translate-x-1/2 flex flex-col items-center text-antigua-white/40 animate-bounce-slow">
+          <span className="text-xs font-body mb-1 tracking-widest">SCROLL</span>
+          <ChevronDown size={18} />
         </div>
 
         {/* Trust strip */}
-        <div className="absolute bottom-0 left-0 right-0 bg-antigua-white/10 backdrop-blur-2xl border-t border-antigua-white/10">
-          <div className="container mx-auto px-4 py-3 flex flex-wrap justify-center gap-6 lg:gap-12 text-antigua-white text-sm font-body">
+        <div className="absolute bottom-0 left-0 right-0 bg-antigua-white/8 backdrop-blur-2xl border-t border-antigua-white/10">
+          <div className="container mx-auto px-4 py-3 flex flex-wrap justify-center gap-6 lg:gap-12 text-antigua-white/90 text-sm font-body">
             <span className="flex items-center gap-2"><AntiguaSunIcon size={14} className="text-antigua-gold" /> 500+ Happy Tourists</span>
             <span className="flex items-center gap-2"><Award size={14} className="text-antigua-gold" /> TripAdvisor Rated</span>
             <span className="flex items-center gap-2"><Smartphone size={14} className="text-antigua-gold" /> 24/7 WhatsApp Support</span>
