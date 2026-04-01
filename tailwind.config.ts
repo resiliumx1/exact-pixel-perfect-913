@@ -13,6 +13,11 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        display: ['"Playfair Display"', 'serif'],
+        body: ['"Plus Jakarta Sans"', 'sans-serif'],
+        accent: ['"Dela Gothic One"', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -57,6 +62,24 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        antigua: {
+          red: "hsl(var(--antigua-red))",
+          black: "hsl(var(--antigua-black))",
+          blue: "hsl(var(--antigua-blue))",
+          gold: "hsl(var(--antigua-gold))",
+          white: "hsl(var(--antigua-white))",
+        },
+        ocean: "hsl(var(--deep-ocean))",
+        sky: "hsl(var(--caribbean-sky))",
+        gold: "hsl(var(--sunset-gold))",
+        amber: "hsl(var(--sunrise-amber))",
+        sand: "hsl(var(--tropical-sand))",
+        shadow: "hsl(var(--palm-shadow))",
+        charcoal: "hsl(var(--charcoal))",
+        slate: "hsl(var(--slate))",
+        mist: "hsl(var(--mist))",
+        cloud: "hsl(var(--cloud))",
+        whatsapp: "#25D366",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -65,25 +88,27 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        "bounce-slow": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(10px)" },
+        },
+        "pulse-ring": {
+          "0%": { transform: "scale(1)", opacity: "0.6" },
+          "100%": { transform: "scale(1.5)", opacity: "0" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "bounce-slow": "bounce-slow 2s ease-in-out infinite",
+        "pulse-ring": "pulse-ring 1.5s ease-out infinite",
       },
     },
   },
