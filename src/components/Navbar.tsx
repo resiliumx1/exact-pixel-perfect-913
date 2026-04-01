@@ -72,13 +72,22 @@ const Navbar = () => {
           </div>
 
           {/* Desktop CTA */}
-          <Link
-            to="/book"
-            className="hidden lg:flex items-center gap-1.5 font-accent text-sm gradient-gold-cta text-antigua-black px-6 py-2.5 rounded-lg cta-glow-gold shadow-lg"
-          >
-            <AntiguaSunIcon size={12} className="text-antigua-black" />
-            BOOK NOW
-          </Link>
+          <div className="hidden lg:flex items-center gap-4">
+            <Link
+              to="/admin"
+              className="flex items-center gap-1 font-body text-xs text-antigua-white/40 hover:text-antigua-white/70 transition-colors"
+            >
+              <Settings size={13} />
+              Admin
+            </Link>
+            <Link
+              to="/book"
+              className="flex items-center gap-1.5 font-accent text-sm gradient-gold-cta text-antigua-black px-6 py-2.5 rounded-lg cta-glow-gold shadow-lg"
+            >
+              <AntiguaSunIcon size={12} className="text-antigua-black" />
+              BOOK NOW
+            </Link>
+          </div>
 
           {/* Mobile Hamburger */}
           <button
