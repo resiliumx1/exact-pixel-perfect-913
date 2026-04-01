@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, Expand } from "lucide-react";
 
+import FlagStripe from "@/components/antiguan/FlagStripe";
 import gallery1 from "@/assets/gallery-1.jpg";
 import gallery2 from "@/assets/gallery-2.jpg";
 import gallery3 from "@/assets/gallery-3.jpg";
