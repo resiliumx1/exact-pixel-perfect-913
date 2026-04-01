@@ -60,7 +60,7 @@ const AdminLayout = () => {
               <ArrowLeft size={18} /> Back to Site
             </Link>
             <button onClick={handleLogout} className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-body text-antigua-white/40 hover:text-antigua-red transition-colors">
-              <LogOut size={18} /> Sign Out
+              <LogOut size={18} /> Exit Admin
             </button>
           </div>
         </div>

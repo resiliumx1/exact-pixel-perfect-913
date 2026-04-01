@@ -115,7 +115,8 @@
     font-size: var(--text-hero);
     font-family: 'Playfair Display', serif;
     font-weight: 900;
-    line-height: 1.05;
+    line-height: 1.02;
+    letter-spacing: -1.5px;
   }
 
   .gradient-hero {

@@ -147,6 +147,18 @@ const Navbar = () => {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
+              transition={{ delay: 0.35 }}
+            >
+              <Link
+                to="/admin"
+                className="text-antigua-white/30 font-body text-sm hover:text-antigua-white/60 transition-colors"
+              >
+                Admin Dashboard
+              </Link>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
               className="absolute bottom-8 flex flex-col items-center gap-2 text-antigua-white/60 text-sm"
             >
