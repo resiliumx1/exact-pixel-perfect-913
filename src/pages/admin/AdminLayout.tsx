@@ -17,22 +17,8 @@ const AdminLayout = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  useEffect(() => {
-    const checkAuth = async () => {
-      const { data: { session } } = await supabase.auth.getSession();
-      if (!session) navigate("/admin/login");
-    };
-    checkAuth();
-
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_, session) => {
-      if (!session) navigate("/admin/login");
-    });
-    return () => subscription.unsubscribe();
-  }, [navigate]);
-
-  const handleLogout = async () => {
-    await supabase.auth.signOut();
-    navigate("/admin/login");
+  const handleLogout = () => {
+    navigate("/");
   };
 
   return (
