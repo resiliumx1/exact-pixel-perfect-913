@@ -190,8 +190,8 @@ const Index = () => {
                 EXPLORE TOURS
               </Link>
               <Link
-                to="/book"
-                className="font-body font-semibold border-2 border-antigua-white text-antigua-white px-8 py-3.5 rounded-lg hover:bg-antigua-white hover:text-antigua-black transition-all text-sm"
+                to="/taxi-services"
+                className="font-body font-semibold border-2 border-antigua-white text-antigua-white px-8 py-3.5 rounded-lg cta-glow-outline text-sm"
               >
                 BOOK A TAXI
               </Link>
