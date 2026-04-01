@@ -206,7 +206,7 @@ const Book = () => {
                     </select>
                   </div>
 
-                  <button type="submit" disabled={loading} className="w-full gradient-gold-cta text-antigua-black font-accent py-3.5 rounded-lg hover:scale-[1.02] hover:brightness-110 transition-all text-sm disabled:opacity-50 flex items-center justify-center gap-2">
+                  <button type="submit" disabled={loading} className="w-full gradient-gold-cta text-antigua-black font-accent py-3.5 rounded-lg cta-glow-gold text-sm disabled:opacity-50 flex items-center justify-center gap-2">
                     {loading ? (
                       <>
                         <AntiguaSunIcon size={16} className="text-antigua-black animate-spin-slow" />

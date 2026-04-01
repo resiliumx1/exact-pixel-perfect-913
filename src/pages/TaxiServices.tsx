@@ -190,7 +190,7 @@ const TaxiServices = () => {
                   </select>
                 </div>
               </div>
-              <button onClick={handleQuote} className="w-full gradient-gold-cta text-antigua-black font-accent py-3 rounded-lg hover:scale-[1.02] hover:brightness-110 transition-all text-sm flex items-center justify-center gap-2">
+              <button onClick={handleQuote} className="w-full gradient-gold-cta text-antigua-black font-accent py-3 rounded-lg cta-glow-gold text-sm flex items-center justify-center gap-2">
                 <Smartphone size={16} />
                 GET QUOTE VIA WHATSAPP
               </button>

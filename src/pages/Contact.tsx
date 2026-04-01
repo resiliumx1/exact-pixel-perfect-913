@@ -83,7 +83,7 @@ const Contact = () => {
                     <label className="block text-sm font-body font-medium text-foreground mb-1">Message *</label>
                     <textarea value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} className="w-full border border-mist rounded-lg px-4 py-2.5 font-body text-sm focus:outline-none focus:border-antigua-blue transition-colors bg-background text-foreground min-h-[140px] resize-y" placeholder="How can we help you?" required maxLength={2000} />
                   </div>
-                  <button type="submit" disabled={loading} className="gradient-gold-cta text-antigua-black font-accent px-8 py-3 rounded-lg hover:scale-[1.02] hover:brightness-110 transition-all text-sm disabled:opacity-50">
+                  <button type="submit" disabled={loading} className="gradient-gold-cta text-antigua-black font-accent px-8 py-3 rounded-lg cta-glow-gold text-sm disabled:opacity-50">
                     {loading ? "SENDING..." : "SEND MESSAGE"}
                   </button>
                 </form>

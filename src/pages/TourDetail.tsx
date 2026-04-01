@@ -312,7 +312,7 @@ const TourDetail = () => {
         </div>
         <Link
           to="/book"
-          className="font-accent gradient-gold-cta text-antigua-black px-6 py-2.5 rounded-lg text-xs shadow-lg"
+          className="font-accent gradient-gold-cta text-antigua-black px-6 py-2.5 rounded-lg text-xs shadow-lg cta-glow-gold"
         >
           BOOK THIS TOUR
         </Link>

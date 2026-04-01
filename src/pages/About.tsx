@@ -197,7 +197,7 @@ const About = () => {
               <p className="text-antigua-white/80 font-body leading-relaxed max-w-2xl mx-auto mb-8">
                 Daryl carries this pride into every tour. He's not just a driver — he's a cultural ambassador, sharing the heart and soul of Antigua with every visitor who steps into his vehicle.
               </p>
-              <Link to="/book" className="inline-block gradient-gold-cta text-antigua-black font-accent px-8 py-3 rounded-lg hover:scale-[1.03] hover:brightness-110 transition-all shadow-lg text-sm">
+              <Link to="/book" className="inline-block gradient-gold-cta text-antigua-black font-accent px-8 py-3 rounded-lg cta-glow-gold shadow-lg text-sm">
                 BOOK YOUR EXPERIENCE
               </Link>
             </div>
