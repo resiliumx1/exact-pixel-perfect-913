@@ -35,9 +35,10 @@ const Contact = () => {
 
   return (
     <main>
-      <section className="relative h-[50vh] min-h-[360px] flex items-center justify-center gradient-hero">
+      <section className="relative h-[50vh] min-h-[360px] flex items-center justify-center overflow-hidden">
         <FlagStripe />
-        <div className="relative z-10 text-center px-4">
+        <img src={heroImg} alt="Antigua coastline" className="absolute inset-0 w-full h-full object-cover" width={1920} height={1080} />
+        <div className="absolute inset-0 bg-gradient-to-b from-shadow/70 via-shadow/40 to-shadow/60" />
           <nav className="text-antigua-white/50 text-sm font-body mb-3">
             <Link to="/" className="hover:text-antigua-white transition-colors">Home</Link>
             <span className="mx-2">→</span><span className="text-antigua-white/80">Contact</span>
