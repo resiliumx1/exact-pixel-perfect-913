@@ -128,7 +128,7 @@ const Index = () => {
   const t = testimonials[testimonialIdx];
 
   return (
-    <main>
+    <main id="main-content">
       {/* ─── SECTION 1: HERO ─── */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <img

@@ -40,7 +40,7 @@ const TaxiServices = () => {
   };
 
   return (
-    <main>
+    <main id="main-content">
       {/* Hero */}
       <section className="relative h-[50vh] min-h-[360px] flex items-center justify-center overflow-hidden">
         <FlagStripe />

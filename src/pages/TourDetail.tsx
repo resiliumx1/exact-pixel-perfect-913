@@ -15,7 +15,7 @@ const TourDetail = () => {
 
   if (!tour) {
     return (
-      <main className="min-h-screen flex items-center justify-center bg-sand">
+      <main id="main-content" className="min-h-screen flex items-center justify-center bg-sand">
         <div className="text-center px-4">
           <AntiguaSunIcon size={60} className="text-antigua-gold/30 mx-auto mb-4" />
           <h1 className="text-charcoal mb-4">Tour Not Found</h1>
@@ -33,7 +33,7 @@ const TourDetail = () => {
   );
 
   return (
-    <main>
+    <main id="main-content">
       {/* Hero */}
       <section className="relative h-[60vh] min-h-[400px] flex items-end overflow-hidden">
         <FlagStripe />
