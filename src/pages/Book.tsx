@@ -55,7 +55,7 @@ const Book = () => {
 
   if (submitted) {
     return (
-      <main>
+      <main id="main-content">
         <section className="min-h-screen flex items-center justify-center bg-sand pt-20">
           <div className="text-center px-4 max-w-md">
             <div className="mb-6">
