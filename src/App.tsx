@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import Index from "./pages/Index";
 import Tours from "./pages/Tours";
+import TourDetail from "./pages/TourDetail";
 import TaxiServices from "./pages/TaxiServices";
 import About from "./pages/About";
 import Gallery from "./pages/Gallery";
@@ -27,7 +28,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/tours" element={<Tours />} />
-          <Route path="/tours/:slug" element={<Tours />} />
+          <Route path="/tours/:slug" element={<TourDetail />} />
           <Route path="/taxi-services" element={<TaxiServices />} />
           <Route path="/about" element={<About />} />
           <Route path="/gallery" element={<Gallery />} />
