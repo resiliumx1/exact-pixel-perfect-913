@@ -9,6 +9,7 @@ import AntiguaSunIcon from "@/components/antiguan/AntiguaSunIcon";
 import AntiguaFlag from "@/components/antiguan/AntiguaFlag";
 import AntiguaFlagBadge from "@/components/antiguan/AntiguaFlagBadge";
 import SectionDividerSun from "@/components/antiguan/SectionDividerSun";
+import FlagStripe from "@/components/antiguan/FlagStripe";
 
 const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) => {
   const ref = useRef(null);
