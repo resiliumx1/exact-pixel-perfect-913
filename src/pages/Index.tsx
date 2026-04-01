@@ -172,7 +172,8 @@ const Index = () => {
           </FadeIn>
           <FadeIn delay={0.15}>
             <h1 className="text-hero text-antigua-white mb-6">
-              Discover Antigua Like Never Before
+              <span className="block">Discover Antigua</span>
+              <span className="block gradient-sunset bg-clip-text text-transparent">Like Never Before</span>
             </h1>
           </FadeIn>
           <FadeIn delay={0.3}>
